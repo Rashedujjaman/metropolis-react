@@ -1,0 +1,56 @@
+export interface Testimonial {
+  id: number;
+  name: string;
+  position: string;
+  company: string;
+  content: string;
+  rating: number;
+  avatar: string;
+}
+
+export interface Statistic {
+  icon: string;
+  number: string;
+  label: string;
+  description: string;
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  status: string;
+  location: string;
+  type: string;
+  units: number;
+  floors: number;
+  area: string;
+  stats: {
+    units: number;
+    sqFt: number;
+    completion: string;
+  };
+  features: string[];
+}
+
+export interface ProjectStats {
+  units: number;
+  sqFt: number;
+  completion: string;
+}
+
+export interface Service {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+}
+
+export interface FAQ {
+  id: number;
+  question: string;
+  answer: string;
+  isOpen?: boolean;
+}
