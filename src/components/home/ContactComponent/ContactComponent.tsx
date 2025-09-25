@@ -58,7 +58,7 @@ const ContactComponent: React.FC = () => {
       className="contact-section"
     >
       <div className="container">
-        <div className="header">
+        <div className="contant-header">
           <div className="col-1">
             <div
               className="hero-bubbles"

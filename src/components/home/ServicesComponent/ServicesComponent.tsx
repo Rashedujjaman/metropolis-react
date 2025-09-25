@@ -24,7 +24,7 @@ const ServicesComponent: React.FC = () => {
   return (
     <section id="services" className="services-section section">
       <div className="container">
-        <div className="header">
+        <div className="service-header">
           <div className="col-1">
             <div
               className="hero-bubbles"
