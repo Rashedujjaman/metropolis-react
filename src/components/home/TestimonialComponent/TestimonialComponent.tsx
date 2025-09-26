@@ -83,11 +83,11 @@ const TestimonialComponent: React.FC = () => {
     return (
       <section className="testimonials empty">
         <div className="container">
-          <h2 className="section-title">TEST</h2>
+          <h2 className="section-title">TESTIM</h2>
           <div className="char-image">
             <img src="/logo.png" alt="Decorative" />
           </div>
-          <h2>MONIALS</h2>
+          <h2>ONIALS</h2>
           <p className="no-testimonials">
             No testimonials available at the moment.
           </p>
@@ -106,7 +106,7 @@ const TestimonialComponent: React.FC = () => {
         {/* =============================================== */}
         <div className="testimonials-header">
           <div className="section-title">
-            <p>*TESTM</p>
+            <p>*TESTIM</p>
             <div className="char-image">
               <img src="/text_photo.jpg" alt="Decorative" />
             </div>
