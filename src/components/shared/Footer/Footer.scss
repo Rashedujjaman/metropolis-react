@@ -1,0 +1,528 @@
+/**
+ * ===============================================
+ * FOOTER COMPONENT STYLES
+ * ===============================================
+ * 
+ * Component: Footer
+ * Purpose: Main site footer with triangular cutout design and newsletter subscription
+ * Author: Generated for Metropolis React Migration
+ * Created: September 26, 2025
+ * 
+ * Features:
+ * - Triangular cutout design element in top-left corner
+ * - Responsive multi-column grid layout (4 columns → 2 → 1)
+ * - Newsletter subscription form with integrated styling
+ * - Professional typography and spacing system
+ * - Dark theme (#0a0a28) with orange accent colors
+ * - Full-width bottom section with copyright
+ * - Interactive hover effects for navigation links
+ * - Geometric decorative elements
+ * 
+ * Structure:
+ * - Footer Container: Main wrapper with decorative elements
+ * - Footer Top: Multi-column content area
+ * - Footer Grid: Responsive column layout
+ * - Newsletter Form: Email subscription with integrated design
+ * - Footer Bottom: Copyright and legal information
+ * 
+ * Responsive Strategy:
+ * - Desktop (>1024px): 4-column layout with proportional sizing
+ * - Tablet (768px-1024px): 2-column balanced layout
+ * - Mobile (<768px): Single column with center alignment
+ */
+
+/**
+ * ===============================================
+ * MAIN FOOTER CONTAINER
+ * ===============================================
+ * Primary container with decorative geometric elements
+ */
+.footer-container {
+  position: relative; /* Establishes positioning context for decorative elements */
+
+  /* Decorative Corner Element */
+  &::after {
+    overflow: hidden; /* Contains gradient background */
+    content: ""; /* Required for pseudo-element */
+    position: absolute; /* Overlay positioning */
+    transform: translate(50%, -50%); /* Corner overlap effect */
+    top: 0; /* Top corner placement */
+    right: 0; /* Right corner placement */
+    height: 60px; /* Decorative element size */
+    width: 60px;
+    opacity: 0.8; /* Subtle transparency */
+    background: linear-gradient(
+      180deg,
+      var(--white),
+      var(--primary-orange)
+    ); /* White to orange gradient */
+  }
+}
+
+/**
+ * ===============================================
+ * MAIN FOOTER SECTION
+ * ===============================================
+ * Dark themed footer with triangular cutout design
+ */
+.footer {
+  background: #0a0a28 !important; /* Dark navy background - overrides any inherited styles */
+  /* Triangular cutout in top-left corner for geometric interest */
+  clip-path: polygon(50px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50px);
+  padding: var(--spacing-xxl) 0 var(--spacing-lg); /* Generous top padding, moderate bottom */
+  position: relative; /* Creates positioning context for pseudo-elements */
+  border-bottom: 5px solid var(--primary-orange); /* Orange brand accent border */
+  margin: 0; /* Reset any default margins */
+
+  /**
+   * Decorative top gradient line
+   * Creates subtle visual separation from main content
+   */
+  &::before {
+    content: ""; /* Required for pseudo-element display */
+    position: absolute; /* Full-width positioning */
+    top: 0; /* Positioned at very top of footer */
+    left: 0;
+    right: 0;
+    height: 1px; /* Thin decorative line */
+    /* Gold gradient provides brand consistency and visual interest */
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--primary-gold) 50%,
+      transparent 100%
+    );
+  }
+}
+
+/**
+ * ===============================================
+ * FOOTER TOP SECTION
+ * ===============================================
+ * Main content area containing all footer columns
+ */
+.footer-top {
+  margin-bottom: var(--spacing-xl); /* Space before copyright section */
+}
+
+/**
+ * ===============================================
+ * RESPONSIVE GRID LAYOUT SYSTEM
+ * ===============================================
+ * Adaptive column system for different screen sizes
+ */
+.footer-grid {
+  display: grid; /* CSS Grid for flexible layout */
+  /* Proportional column sizing: company(2x), links(1x), support(1x), newsletter(1.5x) */
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--spacing-xl); /* Generous spacing between columns */
+
+  /**
+   * Tablet layout (768px - 1023px)
+   * Two-column layout for balanced content distribution
+   */
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr 1fr; /* Equal width columns */
+    gap: var(--spacing-lg); /* Reduced gap for smaller screens */
+  }
+
+  /**
+   * Mobile layout (<768px)
+   * Single column for optimal mobile experience
+   */
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr; /* Full width single column */
+    gap: var(--spacing-lg); /* Consistent gap */
+    text-align: center; /* Center content for mobile hierarchy */
+  }
+}
+
+/**
+ * ===============================================
+ * INDIVIDUAL FOOTER COLUMNS
+ * ===============================================
+ * Consistent styling for all footer content columns
+ */
+.footer-column {
+  /* Column Headings Typography */
+  h4 {
+    color: var(--white); /* High contrast on dark background */
+    margin-bottom: var(--spacing-md); /* Space below headings */
+    font-size: 1.25rem; /* Larger than body text for hierarchy */
+    font-weight: 600; /* Semi-bold for emphasis */
+    font-family: var(--font-heading); /* Brand typography consistency */
+    position: relative; /* For potential pseudo-element styling */
+  }
+}
+
+/**
+ * ===============================================
+ * COMPANY LOGO AND BRANDING SECTION
+ * ===============================================
+ * Brand identity display with flexible layout
+ */
+.footer-logo {
+  display: flex; /* Flexible layout for logo elements */
+  align-items: center; /* Vertically centers logo components */
+  margin-bottom: var(--spacing-md); /* Space below logo section */
+  font-size: 1.5rem; /* Logo text sizing */
+  font-weight: 700; /* Bold brand emphasis */
+  color: var(--white); /* High contrast on dark background */
+
+  /**
+   * Mobile logo alignment
+   * Centers logo for better mobile visual hierarchy
+   */
+  @media (max-width: 767px) {
+    justify-content: center; /* Center alignment on mobile */
+  }
+
+  /* Logo Image Styling */
+  .logo-img {
+    width: 60px; /* Fixed width for consistency */
+    height: 60px; /* Maintains square aspect ratio */
+    margin-right: var(--spacing-sm); /* Space between image and text */
+    object-fit: cover; /* Maintains aspect ratio with cropping */
+  }
+
+  /* Logo Text Styling (if used alongside image) */
+  .logo-text {
+    font-family: var(--font-heading); /* Brand typography consistency */
+  }
+}
+
+/**
+ * ===============================================
+ * FOOTER NAVIGATION LINKS
+ * ===============================================
+ * Clean navigation with interactive hover effects
+ */
+.footer-links {
+  list-style: none; /* Removes default list bullets */
+  margin: 0; /* Resets default margins */
+  padding: 0; /* Resets default padding */
+
+  /* Individual List Items */
+  li {
+    margin-bottom: var(--spacing-xs); /* Moderate spacing between links */
+  }
+}
+
+/**
+ * ===============================================
+ * FOOTER LINK STYLING AND INTERACTIONS
+ * ===============================================
+ * Professional link appearance with smooth hover effects
+ */
+.footer-link {
+  color: #8699ac; /* Muted text color for secondary navigation */
+  text-decoration: none; /* Removes default underline */
+  font-size: 0.95rem; /* Slightly smaller than body text */
+  transition: var(--transition-fast); /* Smooth hover animations */
+  display: inline-block; /* Allows padding transitions */
+  position: relative; /* Required for pseudo-element positioning */
+  background: none; /* For button elements */
+  border: none; /* For button elements */
+  cursor: pointer; /* Indicates interactive element */
+
+  /**
+   * Hover state styling
+   * Interactive feedback with color change and slide effect
+   */
+  &:hover {
+    color: var(--primary-gold); /* Brand accent color on hover */
+    padding-left: var(--spacing-xs); /* Slide-in animation effect */
+  }
+
+  /**
+   * Hover indicator dot
+   * Small decorative element that appears on hover
+   */
+  &::before {
+    content: ""; /* Required for pseudo-element display */
+    position: absolute; /* Positioned relative to link */
+    left: -12px; /* Positioned to left of text */
+    top: 50%; /* Vertically centered */
+    transform: translateY(-50%); /* Perfect vertical centering */
+    width: 4px; /* Small dot size */
+    height: 4px; /* Circular dot dimensions */
+    background-color: var(--primary-gold); /* Brand accent color */
+    border-radius: 50%; /* Perfect circle */
+    opacity: 0; /* Hidden by default */
+    transition: var(--transition-fast); /* Smooth fade-in animation */
+  }
+
+  /**
+   * Show hover indicator on link hover
+   */
+  &:hover::before {
+    opacity: 1; /* Fully visible on hover */
+  }
+}
+
+/**
+ * ===============================================
+ * NEWSLETTER SUBSCRIPTION SECTION
+ * ===============================================
+ * Modern email subscription form with integrated design
+ */
+
+/* Newsletter Call-to-Action Text */
+.newsletter-text {
+  color: var(--text-secondary); /* Muted text color for contrast */
+  font-size: 2rem; /* Large, attention-grabbing size */
+  margin-bottom: var(--spacing-md); /* Space below call-to-action */
+  line-height: 1.2; /* Tight line height for impact */
+}
+
+/* Highlighted Subscription Emphasis */
+.subscribe {
+  color: var(--text-light); /* White text for emphasis */
+  font-weight: 600; /* Semi-bold for visual prominence */
+}
+
+/* Newsletter Form Container */
+.newsletter-form {
+  margin-bottom: var(--spacing-lg); /* Space below form */
+}
+
+/**
+ * ===============================================
+ * INTEGRATED INPUT GROUP DESIGN
+ * ===============================================
+ * Modern form styling with input and button integration
+ */
+.newsletter-input-group {
+  position: relative; /* Positioning context for child elements */
+  display: flex; /* Horizontal layout for input and button */
+  background: transparent; /* Clean, minimalist background */
+  border-bottom: 1px solid var(--primary-orange); /* Orange accent underline */
+  overflow: hidden; /* Contains any overflowing content */
+  transition: var(--transition-fast); /* Smooth focus transitions */
+
+  /**
+   * Focus state enhancement
+   * Accessible focus indication with brand colors
+   */
+  &:focus-within {
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2); /* Gold focus ring */
+  }
+}
+
+/* Newsletter Email Input Field */
+.newsletter-input {
+  flex: 1; /* Takes remaining space in flex container */
+  background: transparent; /* Transparent for integrated look */
+  border: none; /* No border - uses container border */
+  color: var(--white); /* White text on dark background */
+  font-size: 0.95rem; /* Readable text size */
+  padding: var(--spacing-sm) 0; /* Vertical padding for touch targets */
+
+  /* Placeholder Text Styling */
+  &::placeholder {
+    color: var(--text-secondary); /* Muted placeholder text */
+  }
+
+  /* Remove default focus outline - container handles focus */
+  &:focus {
+    outline: none; /* Container provides focus styling */
+  }
+}
+
+/* Newsletter Submit Button */
+.newsletter-btn {
+  background: var(--primary-orange); /* Orange brand color */
+  border: none; /* Clean, borderless design */
+  padding: var(--spacing-sm) var(--spacing-md); /* Comfortable click target */
+  color: var(--white); /* White text for contrast */
+  cursor: pointer; /* Indicates interactive element */
+  transition: var(--transition-fast); /* Smooth hover animations */
+  display: flex; /* Centers content within button */
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Horizontal alignment */
+  font-weight: 600; /* Bold text for emphasis */
+
+  /**
+   * Button hover state
+   * Interactive feedback with scaling and color change
+   */
+  &:hover {
+    background: #b8470a; /* Darker orange shade on hover */
+    transform: scale(1.05); /* Slight scale increase for feedback */
+  }
+
+  /* Button Text Styling */
+  b {
+    font-size: 0.9rem; /* Slightly smaller than input text */
+  }
+}
+
+/**
+ * ===============================================
+ * FOOTER BOTTOM SECTION
+ * ===============================================
+ * Full-width copyright area with legal information
+ */
+.footer-bottom {
+  width: 100%; /* Spans full width of viewport */
+  padding-top: var(--spacing-lg); /* Space above content */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator line */
+}
+
+/* Footer Bottom Content Layout */
+.footer-bottom-content {
+  display: flex; /* Flexible layout for content distribution */
+  justify-content: space-between; /* Distributes content to edges */
+  align-items: center; /* Vertical alignment */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  gap: var(--spacing-md); /* Space between items when wrapped */
+
+  /**
+   * Mobile layout adjustment
+   * Stacks content vertically for better mobile experience
+   */
+  @media (max-width: 767px) {
+    flex-direction: column; /* Vertical stacking on mobile */
+    text-align: center; /* Center-aligned text */
+  }
+}
+
+/* Copyright Notice Styling */
+.copyright {
+  color: rgba(255, 255, 255, 0.7); /* Muted white for legal text */
+  font-size: 0.9rem; /* Smaller text size for legal content */
+  margin: 0; /* Removes default paragraph margins */
+}
+
+/**
+ * ===============================================
+ * RESPONSIVE DESIGN ADJUSTMENTS
+ * ===============================================
+ */
+
+/**
+ * Tablet-specific layout adjustments (768px - 1023px)
+ * Optimizes content layout for medium-sized screens
+ */
+@media (max-width: 1023px) {
+  .footer-grid {
+    /**
+     * Company branding column spans full width on tablet
+     * Creates better visual hierarchy on medium screens
+     */
+    .footer-column:nth-child(1) {
+      grid-column: 1 / -1; /* Spans all available columns */
+      margin-bottom: var(--spacing-lg); /* Space below company section */
+      text-align: center; /* Center-aligned branding */
+    }
+  }
+}
+
+/**
+ * Mobile-specific layout adjustments (<768px)
+ * Optimizes spacing and layout for small screens
+ */
+@media (max-width: 767px) {
+  /* Mobile Footer Container */
+  .footer {
+    padding: var(--spacing-xl) 0 var(--spacing-md); /* Reduced mobile padding */
+  }
+
+  /* Mobile Footer Top Section */
+  .footer-top {
+    margin-bottom: var(--spacing-lg); /* Reduced mobile spacing */
+  }
+
+  /* Mobile Newsletter Optimization */
+  .newsletter-text {
+    font-size: 1.3rem; /* Smaller call-to-action text for mobile */
+    margin-bottom: var(--spacing-sm); /* Reduced spacing */
+    line-height: 1.3; /* Tighter line height for mobile */
+  }
+
+  .newsletter-form {
+    margin-bottom: var(--spacing-md); /* Reduced form margin */
+  }
+
+  .newsletter-input-group {
+    max-width: 300px; /* Constrain width on mobile */
+    margin: 0 auto; /* Center the form */
+  }
+
+  .newsletter-input {
+    font-size: 0.85rem; /* Smaller input text */
+    padding: var(--spacing-xs) 0; /* Reduced padding */
+  }
+
+  .newsletter-btn {
+    padding: var(--spacing-xs) var(--spacing-sm); /* Smaller button padding */
+
+    b {
+      font-size: 0.8rem; /* Smaller button text */
+    }
+  }
+}
+
+/**
+ * ===============================================
+ * ACCESSIBILITY AND PREFERENCE SUPPORT
+ * ===============================================
+ */
+
+/* High DPI Display Optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .footer-logo .logo-img {
+    image-rendering: -webkit-optimize-contrast; /* Improved image rendering */
+    image-rendering: crisp-edges; /* Sharp edge rendering */
+  }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important; /* Minimal animation duration */
+    animation-iteration-count: 1 !important; /* Single iteration only */
+    transition-duration: 0.01ms !important; /* Minimal transitions */
+  }
+}
+
+/* Dark Mode Support (automatic adaptation) */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background: #050514 !important; /* Even darker background for dark mode */
+  }
+
+  .footer-link {
+    color: #a0b3c6; /* Lighter muted text for dark mode */
+
+    &:hover {
+      color: var(--primary-gold); /* Consistent brand color */
+    }
+  }
+}
+
+/**
+ * ===============================================
+ * PRINT STYLES
+ * ===============================================
+ * Optimized layout for print media
+ */
+@media print {
+  .footer {
+    background: white !important; /* White background for print */
+    border-bottom: 1px solid #000; /* Black border for print */
+    clip-path: none; /* Remove geometric effects for print */
+  }
+
+  .footer-container::after {
+    display: none; /* Hide decorative elements */
+  }
+
+  .newsletter-form {
+    display: none; /* Hide interactive form */
+  }
+
+  .copyright {
+    color: #000 !important; /* Black text for print */
+  }
+}

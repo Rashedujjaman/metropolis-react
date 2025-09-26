@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Footer.scss";
 
 /**
- * Footer component with company branding and navigation
+ * Footer component - Main site footer with triangular cutout design
  * Features:
- * - Multi-column responsive grid layout
+ * - Multi-column responsive grid layout (4→2→1 columns)
+ * - Triangular cutout design element in top-left corner
+ * - Newsletter subscription form with email validation
+ * - Professional navigation links with hover effects
  * - Company branding and logo display
- * - Navigation links for quick access
- * - Copyright information
+ * - Dynamic copyright year calculation
+ * - Full responsive design with mobile optimization
+ * - Dark theme with orange accent colors
  */
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+
+  // Newsletter subscription handler
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (email.trim()) {
+      // TODO: In production, integrate with email marketing service
+      // Example integrations:
+      // - POST request to backend API
+      // - Third-party service integration (Mailchimp, ConvertKit)
+      // - Database storage with user preferences
+      console.log("Subscribing email:", email);
+
+      // User feedback - replace with proper notification system in production
+      alert("Thank you for subscribing to our newsletter!");
+
+      // Reset form field
+      setEmail("");
+    }
+  };
 
   const scrollTo = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -57,7 +83,7 @@ const Footer: React.FC = () => {
                       onClick={() => scrollTo("services")}
                       type="button"
                     >
-                      Services
+                      Service
                     </button>
                   </li>
                   <li>
@@ -66,7 +92,7 @@ const Footer: React.FC = () => {
                       onClick={() => scrollTo("projects")}
                       type="button"
                     >
-                      Projects
+                      Pricing
                     </button>
                   </li>
                   <li>
@@ -86,68 +112,59 @@ const Footer: React.FC = () => {
                 <h4 className="footer-heading">Support</h4>
                 <ul className="footer-links">
                   <li>
-                    <a href="/privacy" className="footer-link">
+                    <a href="#" className="footer-link">
+                      Terms & Conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="footer-link">
                       Privacy Policy
                     </a>
                   </li>
                   <li>
-                    <a href="/terms" className="footer-link">
-                      Terms of Service
+                    <a href="#" className="footer-link">
+                      FAQ
                     </a>
                   </li>
                   <li>
-                    <a href="/help" className="footer-link">
-                      Help Center
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/support" className="footer-link">
+                    <a href="#" className="footer-link">
                       Support
                     </a>
                   </li>
                 </ul>
               </div>
 
-              {/* Contact Information Column */}
+              {/* Newsletter Subscription Column */}
               <div className="footer-column">
-                <h4 className="footer-heading">Contact Info</h4>
-                <div className="footer-contact">
-                  <p className="contact-item">
-                    <i className="fas fa-phone"></i>
-                    <span>+1 (555) 123-4567</span>
-                  </p>
-                  <p className="contact-item">
-                    <i className="fas fa-envelope"></i>
-                    <span>info@metropolisliving.com</span>
-                  </p>
-                  <p className="contact-item">
-                    <i className="fas fa-map-marker-alt"></i>
-                    <span>123 Main Street, City, State 12345</span>
-                  </p>
-                </div>
+                <p className="newsletter-text">
+                  Stay Informed & <b className="subscribe">Subscribe</b> our
+                  blog!
+                </p>
+
+                <form className="newsletter-form" onSubmit={handleSubscribe}>
+                  <div className="newsletter-input-group">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email"
+                      className="newsletter-input"
+                      required
+                    />
+                    <button type="submit" className="newsletter-btn">
+                      <b>Send</b>
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
 
           {/* Footer Bottom - Copyright */}
           <div className="footer-bottom">
-            <div className="footer-bottom-content">
-              <p className="copyright">
-                &copy; {currentYear} Metropolis Living. All rights reserved.
-              </p>
-              <div className="social-links">
-                <a href="#" className="social-link" aria-label="Facebook">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" className="social-link" aria-label="Twitter">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="#" className="social-link" aria-label="LinkedIn">
-                  <i className="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" className="social-link" aria-label="Instagram">
-                  <i className="fab fa-instagram"></i>
-                </a>
+            <div className="container">
+              <div className="footer-bottom-content">
+                <p className="copyright">Copyright &copy; {currentYear}.</p>
               </div>
             </div>
           </div>

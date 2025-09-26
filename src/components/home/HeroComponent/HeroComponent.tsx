@@ -170,7 +170,7 @@ const HeroComponent: React.FC = () => {
           <div className="hero-content-right">
             <div className="hero-image-container">
               <img
-                src="https://img.freepik.com/free-photo/vertical-low-angle-shot-high-rise-skyscrapers-glass-facade-frankfurt-germany_181624-7114.jpg"
+                src="https://t17.market.xiaomi.com/thumbnail/jpeg/w480/ThemeMarket/0967f510d99da3b63ef19d36b16d707855a424046"
                 alt="Modern metropolitan building showcase"
                 className="hero-main-image"
               />

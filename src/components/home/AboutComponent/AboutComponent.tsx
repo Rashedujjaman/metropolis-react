@@ -15,6 +15,8 @@ import "./AboutComponent.scss";
  * - Logo overlay with laurel design
  */
 const AboutComponent: React.FC = () => {
+  const numberOfTrustedCompanies = 100; // Example statistic value
+
   return (
     <section id="about" className="about-section" aria-label="about section">
       <div className="container">
@@ -30,7 +32,7 @@ const AboutComponent: React.FC = () => {
           <div className="image-container">
             <div className="about-image">
               <img
-                src="https://img.freepik.com/free-photo/vertical-low-angle-shot-high-rise-skyscrapers-glass-facade-frankfurt-germany_181624-7114.jpg"
+                src="https://t17.market.xiaomi.com/thumbnail/jpeg/w480/ThemeMarket/0967f510d99da3b63ef19d36b16d707855a424046"
                 alt="About Metropolis Living - Modern skyscrapers"
               />
 
@@ -84,7 +86,8 @@ const AboutComponent: React.FC = () => {
                 </div>
                 <div className="card-content">
                   <div className="stat-number">
-                    100<span className="plus">+</span>
+                    {numberOfTrustedCompanies}
+                    <span className="plus">+</span>
                   </div>
                   <div className="stat-text">Trusted By Companies</div>
                 </div>
