@@ -159,6 +159,33 @@ export const useHomeData = () => {
               "https://archello.s3.eu-central-1.amazonaws.com/images/2020/01/16/Modern-Arabic-Villa-Architectural-Design-1.1579168023.1665.jpg",
             tags: ["Trends", "Market Analysis", "Investment", "Growth"],
           },
+          // {
+          //   id: "3",
+          //   title: "Sustainable Urban Development: Building Green",
+          //   date: "2025-04-30",
+          //   author: "Emily Johnson",
+          //   content:
+          //     "Discover the principles and practices of sustainable urban development that prioritize environmental stewardship, social equity, and economic viability. Explore how Metropolis integrates green building techniques, renewable energy solutions, and community-centric designs to create thriving urban environments.",
+          //   imageUrl:
+          //     "https://www.example.com/images/sustainable-urban-development.jpg",
+          //   tags: [
+          //     "Sustainability",
+          //     "Green Building",
+          //     "Urban Planning",
+          //     "Environment",
+          //   ],
+          // },
+          // {
+          //   id: "4",
+          //   title: "Investment Opportunities in Urban Development",
+          //   date: "2025-04-25",
+          //   author: "David Lee",
+          //   content:
+          //     "Explore lucrative investment opportunities in the urban development sector. This article highlights key areas for investment, emerging market trends, and strategies for maximizing returns in a competitive landscape.",
+          //   imageUrl:
+          //     "https://www.example.com/images/investment-opportunities.jpg",
+          //   tags: ["Investment", "Opportunities", "Urban Development"],
+          // },
         ];
 
         setFaqs(faqData);

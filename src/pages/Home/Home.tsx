@@ -32,16 +32,8 @@ const Home: React.FC = () => {
 
   // Handle blog post selection
   const handleBlogPostSelect = (post: BlogPost) => {
-    // For now, we'll log the selection. In a real app, this might:
-    // - Navigate to a detailed blog post page
-    // - Open a modal with full content
-    // - Trigger analytics events
     console.log("Blog post selected:", post);
 
-    // Example: You could implement navigation here
-    // navigate(`/blog/${post.id}`);
-
-    // Or show an alert with basic info for demo purposes
     alert(
       `Selected blog post: "${post.title}"\n\nAuthor: ${
         post.author

@@ -112,9 +112,6 @@ const BlogComponent: React.FC<BlogComponentProps> = ({ onSelectPost }) => {
                     <div className="card-content">
                       <p className="card-title">{post.title}</p>
                       <div className="card-date">{formattedDate}</div>
-                      {post.author && (
-                        <div className="card-author">By {post.author}</div>
-                      )}
                     </div>
                   </div>
                 </div>
