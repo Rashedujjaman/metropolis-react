@@ -373,8 +373,8 @@
       padding: var(--spacing-md) 0 0 0; /* Reduced top padding */
 
       .title {
-        font-size: clamp(1.5rem, 4vw, 2.5rem); /* Fluid responsive sizing */
-        max-width: 95%; /* Nearly full width */
+        font-size: 1rem; /* Fluid responsive sizing */
+        max-width: 90%; /* Nearly full width */
         text-align: center; /* Center alignment for mobile */
         line-height: 1.3; /* Adjusted line height */
       }
@@ -393,7 +393,7 @@
 
         .about-image {
           max-width: 300px; /* Limited mobile width */
-          max-height: 400px; /* Limited mobile height */
+          height: 400px;
           margin-bottom: var(--spacing-lg); /* Increased bottom margin */
           object-fit: cover; /* Maintain aspect ratio */
 
@@ -429,14 +429,13 @@
         padding: 2rem; /* Increased mobile padding */
 
         .content-area {
-          padding-bottom: 120px; /* Space for mobile stat card */
+          padding-bottom: 20px; /* Space for mobile stat card */
           gap: 0.8rem; /* Tighter mobile spacing */
         }
 
         /* Mobile Typography */
         p {
           font-size: 0.9rem; /* Slightly smaller text */
-          text-align: left; /* Left alignment for mobile */
           line-height: 1.5; /* Optimized mobile line height */
         }
 
@@ -490,6 +489,9 @@
           }
         }
       }
+    }
+    .line-separator2 {
+      margin: 2rem 0 3rem 0; /* Reduced mobile spacing */
     }
   }
 
