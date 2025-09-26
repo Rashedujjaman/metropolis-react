@@ -1,4 +1,28 @@
-// Hero Section
+/**
+ * ===============================================
+ * HERO SECTION COMPONENT STYLES
+ * ===============================================
+ * 
+ * Comprehensive hero section with responsive design
+ * for optimal viewing across all device types.
+ * 
+ * Layout Structure:
+ * - Hero header with title, subtitle and interactive elements
+ * - Content section with video thumbnail and image showcase
+ * - Footer section with company branding and project showcase
+ * 
+ * Responsive Breakpoints:
+ * - Desktop: >1024px (current design preserved)
+ * - Tablet: 768px - 1024px
+ * - Mobile: <768px
+ * 
+ * @component HeroSection
+ * @author Metropolis Living Team
+ * @version 2.0.0
+ * @since 2025-09-26
+ */
+
+// Hero Section Main Container
 .hero-section {
   padding: var(--spacing-xxl) 0;
   background: transparent;
@@ -6,6 +30,12 @@
   display: flex;
   align-items: center;
 
+  /**
+   * ===============================================
+   * HERO HEADER LAYOUT
+   * ===============================================
+   * Primary hero content with title, bubbles, description and rating
+   */
   .hero-layout {
     display: flex;
     flex-direction: row;
@@ -14,6 +44,10 @@
     gap: var(--spacing-xl);
     // background: green;
 
+    /**
+     * Left Section: Main title, subtitle and interactive bubbles
+     * Contains the primary messaging and call-to-action elements
+     */
     .hero-left {
       flex: 1.25;
       display: flex;
@@ -22,6 +56,7 @@
       // background: blue;
       height: 100% !important;
 
+      /* Primary Hero Title: Large impact typography */
       .hero-main-title {
         font-size: 5rem;
         font-weight: 500;
@@ -30,11 +65,16 @@
         line-height: 60px;
       }
 
+      /**
+       * Hero Second Line: Subtitle with interactive bubble elements
+       * Combines branded subtitle with engaging visual elements
+       */
       .hero-second-line {
         display: flex;
         align-items: center;
         gap: var(--spacing-md);
 
+        /* Branded Subtitle: Orange accent for visual hierarchy */
         .hero-living {
           font-size: 5rem;
           font-weight: 500;
@@ -42,6 +82,10 @@
           line-height: 60px;
         }
 
+        /**
+         * Interactive Bubble Components: Overlapping circular elements
+         * Creates visual interest and interactive engagement points
+         */
         .hero-bubbles {
           display: flex;
           position: relative;
@@ -96,6 +140,10 @@
       }
     }
 
+    /**
+     * Right Section: Description text and rating component
+     * Secondary content area with supporting information
+     */
     .hero-right {
       flex: 0.75;
       display: flex;
@@ -104,6 +152,7 @@
       align-items: flex-end;
       // background: red;
 
+      /* Hero Description: Supporting text content */
       .hero-description {
         p {
           font-size: 1.5rem;
@@ -115,14 +164,17 @@
         }
       }
 
-      /* Interactive Rating Container: Geometric design with custom clip-path */
+      /**
+       * Interactive Rating Container: Geometric design with custom clip-path
+       * Showcases company rating with sophisticated visual treatment
+       */
       .hero-rating-container {
         position: relative;
         background: var(--white);
         height: 120px;
         width: 120px;
-        transition: all 0.3s ease;
-        cursor: pointer;
+        transition: all 0.3s ease; /* Smooth interaction animations */
+        cursor: pointer; /* Interactive feedback */
 
         /* Geometric Triangular Cutout: Creates sophisticated visual interest */
         clip-path: polygon(20px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20px);
@@ -132,12 +184,14 @@
         justify-content: center;
         display: flex;
 
+        /* Rating Content Container */
         .hero-rating {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: var(--spacing-xs);
 
+          /* Star Rating Display */
           .rating-stars {
             color: var(--primary-orange);
             display: flex;
@@ -156,6 +210,7 @@
             }
           }
 
+          /* Rating Information Text */
           .rating-info {
             .rating-text {
               font-size: 1rem;
@@ -174,10 +229,20 @@
     }
   }
 
+  /**
+   * ===============================================
+   * HERO CONTENT SECTION
+   * ===============================================
+   * Secondary content area with video, image and company information
+   */
   .hero-content-section {
     display: flex;
     position: relative;
 
+    /**
+     * Content Left: Video thumbnail and company details
+     * Interactive video section with branding elements
+     */
     .hero-content-left {
       flex: 1;
       display: flex;
@@ -187,6 +252,7 @@
       // background: yellow;
       position: relative;
 
+      /* Video Section: Interactive media showcase */
       .video-section {
         width: 100%;
         // background: red;
@@ -194,22 +260,26 @@
         gap: var(--spacing-md);
         align-items: center;
 
+        /* Video Thumbnail Container */
         .video-thumbnail {
           position: relative;
           width: 200px;
-          transition: transform 0.3s ease;
-          cursor: pointer;
+          transition: transform 0.3s ease; /* Smooth hover scaling */
+          cursor: pointer; /* Interactive feedback */
 
+          /* Thumbnail Image Element */
           .thumbnail-image {
             width: 100%;
             display: block;
           }
         }
 
+        /* Hover Effect: Subtle scaling animation */
         .video-thumbnail:hover {
           transform: scale(1.05);
         }
 
+        /* Play Button Overlay: Centered interactive element */
         .play-button {
           position: absolute;
           top: 50%;
@@ -225,15 +295,21 @@
           color: var(--black);
           font-size: 30px;
           cursor: pointer;
-          transition: background 0.3s ease;
+          transition: background 0.3s ease; /* Smooth background transition */
         }
       }
 
+      /**
+       * Hero Bottom: Company branding and title section
+       * Positioned at bottom with branded typography and divider
+       */
       .hero-bottom {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
+
+        /* Main Company Title */
         .hero-title {
           font-size: 1.5rem;
           font-weight: 600;
@@ -241,12 +317,14 @@
           margin: 0;
         }
 
+        /* Visual Divider with Orange Accent */
         .divider {
           width: 100%;
           height: 1px;
           background: var(--secondary-gray);
           margin: var(--spacing-sm) 0;
 
+          /* Orange accent bar */
           &:after {
             content: "";
             display: block;
@@ -258,6 +336,7 @@
           }
         }
 
+        /* Branded Subtitle */
         .hero-subtitle {
           font-size: 1.25rem;
           font-weight: 400;
@@ -267,12 +346,17 @@
       }
     }
 
+    /**
+     * Content Right: Main hero image with overlay elements
+     * Primary visual showcase with geometric clipping and decorative elements
+     */
     .hero-content-right {
       flex: 2;
       position: relative;
       // background: blue;
       height: 600px;
 
+      /* Main Image Container with Geometric Clipping */
       .hero-image-container {
         position: absolute;
         top: 0;
@@ -280,13 +364,21 @@
         height: 100%;
         width: calc(100% - 120px);
 
+        /* Hero Image with Custom Clip Path */
         .hero-main-image {
           height: 100%;
           width: 100%;
           object-fit: cover;
-          clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
+          clip-path: polygon(
+            20% 0%,
+            100% 0%,
+            100% 100%,
+            0% 100%,
+            0% 20%
+          ); /* Geometric cutout */
         }
 
+        /* Call-to-Action Overlay Button */
         .call-action-overlay {
           position: absolute;
           top: 30px;
@@ -294,6 +386,10 @@
           z-index: 2; /* Ensure it sits above the image */
         }
 
+        /**
+         * Decorative Dot Pattern: Creates visual texture and depth
+         * Positioned as pseudo-element overlay
+         */
         &::after {
           content: "";
           position: absolute;
@@ -301,16 +397,23 @@
           right: 80px;
           width: 10px;
           height: 10px;
-          background: rgb(255, 255, 255);
+          background: rgb(255, 255, 255); /* White dot pattern */
+          /* Multiple box-shadows create dot grid pattern */
           box-shadow: 0 -60px 0 0 white, 60px -60px 0 0 white,
             60px -120px 0 0 white, 120px -60px 0 0 white, 120px -120px 0 0 white,
             120px 0px 0 0 white, 60px 0px 0 0 white;
-          z-index: 1000;
+          z-index: 1000; /* Top layer for visibility */
         }
       }
     }
   }
 
+  /**
+   * ===============================================
+   * HERO FOOTER SECTION
+   * ===============================================
+   * Company showcase with project image, logo and establishment details
+   */
   .hero-footer {
     background: var(--white); /* Clean background for content focus */
     width: 100%; /* Full-width footer section */
@@ -370,6 +473,325 @@
         font-size: 1rem; /* Standard readable text size */
         color: var(--text-secondary); /* Secondary color for hierarchy */
         line-height: 1.4; /* Optimal reading line height */
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * RESPONSIVE DESIGN - TABLET BREAKPOINT
+   * ===============================================
+   * Optimizations for tablet devices (768px - 1024px)
+   * Maintains layout structure while adjusting proportions
+   */
+  @media (max-width: 1024px) and (min-width: 768px) {
+    /* Tablet Hero Layout Adjustments */
+    .hero-layout {
+      gap: var(--spacing-lg); /* Reduced spacing for tighter layout */
+
+      .hero-left {
+        .hero-main-title {
+          font-size: 4rem; /* Reduced from 5rem for tablet screens */
+          line-height: 50px; /* Adjusted line height */
+        }
+
+        .hero-second-line {
+          .hero-living {
+            font-size: 4rem; /* Proportional reduction */
+            line-height: 50px;
+          }
+
+          .hero-bubbles {
+            height: 50px; /* Slightly smaller bubbles */
+            width: 75px; /* Proportional width adjustment */
+
+            .bubble {
+              width: 50px; /* Reduced bubble size */
+              height: 50px;
+
+              &.bubble-bottom {
+                left: 25px; /* Adjusted overlap positioning */
+              }
+            }
+          }
+        }
+      }
+
+      .hero-right {
+        .hero-description p {
+          font-size: 1.3rem; /* Slightly smaller text */
+          max-width: 400px; /* Reduced max width */
+        }
+
+        .hero-rating-container {
+          height: 100px; /* Smaller rating container */
+          width: 100px;
+
+          .hero-rating {
+            .rating-stars {
+              .star {
+                font-size: 1.7rem; /* Smaller stars */
+              }
+
+              .rating-number {
+                font-size: 1.3rem; /* Smaller rating number */
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* Tablet Content Section Adjustments */
+    .hero-content-section {
+      .hero-content-left {
+        .video-section {
+          .video-thumbnail {
+            width: 180px; /* Smaller video thumbnail */
+          }
+        }
+      }
+
+      .hero-content-right {
+        height: 500px; /* Reduced height for tablet */
+
+        .hero-image-container {
+          right: 80px; /* Adjusted positioning */
+          width: calc(100% - 80px);
+        }
+      }
+    }
+
+    /* Tablet Footer Adjustments */
+    .hero-footer {
+      height: 180px; /* Slightly reduced height */
+      margin: 8rem 0; /* Reduced margin */
+
+      .footer-details {
+        padding: 25px; /* Reduced padding */
+
+        .footer-info h2 {
+          font-size: 1.6rem; /* Smaller heading */
+        }
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * RESPONSIVE DESIGN - MOBILE BREAKPOINT
+   * ===============================================
+   * Complete layout restructure for mobile devices (<768px)
+   * Stack-based layout for optimal mobile experience
+   */
+  @media (max-width: 767px) {
+    padding: var(--spacing-lg) 0; /* Reduced top/bottom padding */
+
+    /* Mobile Hero Layout: Stack-based Structure */
+    .hero-layout {
+      flex-direction: column; /* Stack elements vertically */
+      gap: var(--spacing-lg);
+      text-align: center; /* Center-aligned content */
+
+      .hero-left {
+        flex: none; /* Remove flex sizing */
+        align-items: center; /* Center alignment */
+
+        .hero-main-title {
+          font-size: 2.5rem; /* Significantly reduced for mobile */
+          line-height: 1.1; /* Tighter line height */
+        }
+
+        .hero-second-line {
+          flex-direction: column; /* Stack title and bubbles */
+          gap: var(--spacing-sm);
+
+          .hero-living {
+            font-size: 2.5rem; /* Matching main title size */
+            line-height: 1.1;
+          }
+
+          .hero-bubbles {
+            height: 40px; /* Smaller mobile bubbles */
+            width: 60px;
+
+            .bubble {
+              width: 40px; /* Reduced bubble size */
+              height: 40px;
+
+              &.bubble-bottom {
+                left: 20px; /* Adjusted overlap */
+              }
+            }
+          }
+        }
+      }
+
+      .hero-right {
+        flex: none;
+        align-items: center; /* Center alignment */
+
+        .hero-description p {
+          font-size: 1rem; /* Mobile-optimized text size */
+          text-align: center; /* Center alignment for mobile */
+          max-width: none; /* Remove width restriction */
+        }
+
+        .hero-rating-container {
+          height: 80px; /* Compact mobile rating */
+          width: 80px;
+
+          .hero-rating {
+            .rating-stars {
+              .star {
+                font-size: 1.2rem; /* Much smaller stars */
+              }
+
+              .rating-number {
+                font-size: 1rem; /* Smaller rating number */
+              }
+            }
+
+            .rating-info .rating-text {
+              font-size: 0.8rem; /* Smaller info text */
+            }
+          }
+        }
+      }
+    }
+
+    /* Mobile Content Section: Simplified Layout */
+    .hero-content-section {
+      flex-direction: column; /* Stack content vertically */
+      gap: var(--spacing-lg);
+
+      .hero-content-left {
+        order: 2; /* Move below image on mobile */
+
+        .video-section {
+          justify-content: center; /* Center video section */
+
+          .video-thumbnail {
+            width: 150px; /* Smaller mobile thumbnail */
+          }
+
+          .play-button {
+            width: 50px; /* Smaller play button */
+            height: 50px;
+            font-size: 24px;
+          }
+        }
+
+        .hero-bottom {
+          position: static; /* Remove absolute positioning */
+          text-align: center; /* Center-aligned text */
+
+          .hero-title {
+            font-size: 1.2rem; /* Smaller mobile title */
+          }
+
+          .hero-subtitle {
+            font-size: 1rem; /* Smaller mobile subtitle */
+          }
+        }
+      }
+
+      .hero-content-right {
+        height: 300px; /* Much smaller for mobile */
+        order: 1; /* Move above content on mobile */
+
+        .hero-image-container {
+          right: 20px; /* Adjusted mobile positioning */
+          width: calc(100% - 40px); /* More mobile-friendly width */
+
+          .hero-main-image {
+            /* Simplified clip-path for mobile */
+            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10%);
+          }
+
+          .call-action-overlay {
+            top: 20px; /* Adjusted mobile positioning */
+            left: -20px;
+          }
+
+          /* Simplified dot pattern for mobile */
+          &::after {
+            bottom: -20px;
+            right: 20px;
+            /* Simpler dot pattern with fewer elements */
+            box-shadow: 0 -30px 0 0 white, 30px -30px 0 0 white,
+              30px 0px 0 0 white;
+          }
+        }
+      }
+    }
+
+    /* Mobile Footer: Simplified Single Column */
+    .hero-footer {
+      flex-direction: column; /* Stack footer elements */
+      height: auto; /* Auto height for stacked content */
+      margin: 4rem 0; /* Reduced mobile margin */
+
+      .footer-img,
+      .footer-logo {
+        height: 120px; /* Fixed height for mobile */
+      }
+
+      .footer-details {
+        padding: 20px; /* Reduced mobile padding */
+        text-align: center; /* Center-aligned content */
+        align-items: center; /* Center alignment */
+
+        .footer-info {
+          text-align: center; /* Override right alignment */
+
+          h2 {
+            font-size: 1.4rem; /* Smaller mobile heading */
+            margin-bottom: 1rem;
+          }
+        }
+
+        .footer-text {
+          font-size: 0.9rem; /* Smaller mobile text */
+        }
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * RESPONSIVE DESIGN - SMALL MOBILE BREAKPOINT
+   * ===============================================
+   * Further optimizations for very small screens (<480px)
+   */
+  @media (max-width: 479px) {
+    .hero-layout {
+      .hero-left {
+        .hero-main-title {
+          font-size: 2rem; /* Further reduced for small screens */
+        }
+
+        .hero-second-line .hero-living {
+          font-size: 2rem; /* Matching reduction */
+        }
+      }
+    }
+
+    .hero-content-section .hero-content-right {
+      height: 250px; /* Even smaller for tiny screens */
+
+      .hero-image-container {
+        right: 10px; /* Minimal side margins */
+        width: calc(100% - 20px);
+      }
+    }
+
+    .hero-footer {
+      margin: 2rem 0; /* Minimal margin for small screens */
+
+      .footer-img,
+      .footer-logo {
+        height: 100px; /* Further reduced height */
       }
     }
   }
