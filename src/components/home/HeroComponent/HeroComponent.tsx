@@ -203,13 +203,13 @@ const HeroComponent: React.FC = () => {
             />
           </div>
 
-          <div className="footer-logo" role="img" aria-label="Company logo">
-            <img
-              src="logo.png"
-              alt="Metropolis Living company logo"
-              className="footer-logo"
-            />
-          </div>
+          {/* <div className="footer-logo" role="img" aria-label="Company logo"> */}
+          <img
+            src="logo.png"
+            alt="Metropolis Living company logo"
+            className="footer-logo"
+          />
+          {/* </div> */}
 
           <div
             className="footer-details"
@@ -217,9 +217,7 @@ const HeroComponent: React.FC = () => {
             aria-label="Company establishment and details"
           >
             {/* Establishment Information */}
-            <div>
-              <p className="footer-text">Est. Since 2016</p>
-            </div>
+            <p className="footer-text">Est. Since 2016</p>
 
             <div className="footer-info">
               <h2>Wrbanite</h2>

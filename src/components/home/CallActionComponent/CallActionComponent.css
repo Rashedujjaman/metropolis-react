@@ -130,3 +130,77 @@
 .hero-overlay[style*="height: 80px"] .section-left {
   font-size: 1.2rem;
 }
+
+/**
+ * ===========================================
+ * MOBILE RESPONSIVE DESIGN
+ * ===========================================
+ * Enhanced mobile optimizations with prop-based scaling
+ */
+
+/* Mobile breakpoint: tablets and smaller */
+@media (max-width: 768px) {
+  .hero-overlay {
+    /* Scale down to 75% of original size for better mobile fit */
+    transform: scale(0.75);
+    transform-origin: center;
+    /* Adjust positioning to compensate for scaling */
+    margin: -8px;
+  }
+
+  /* Mobile text adjustments for better readability */
+  .section-right {
+    font-size: 0.85rem;
+    padding: 0 6px;
+  }
+
+  .section-left {
+    font-size: 0.9rem;
+    letter-spacing: -4px;
+  }
+}
+
+/* Height-based mobile optimizations */
+@media (max-width: 768px) {
+  /* Small height components on mobile */
+  .hero-overlay[style*="height: 40px"],
+  .hero-overlay[style*="height: 30px"] {
+    transform: scale(0.7);
+    margin: -10px;
+  }
+
+  /* Medium height components on mobile */
+  .hero-overlay[style*="height: 50px"],
+  .hero-overlay[style*="height: 60px"] {
+    transform: scale(0.75);
+    margin: -8px;
+  }
+
+  /* Large height components on mobile */
+  .hero-overlay[style*="height: 70px"],
+  .hero-overlay[style*="height: 80px"] {
+    transform: scale(0.8);
+    margin: -6px;
+  }
+}
+
+/* Width-based mobile optimizations */
+@media (max-width: 768px) {
+  /* Narrow components */
+  .hero-overlay[style*="width: 150px"],
+  .hero-overlay[style*="width: 120px"] {
+    transform: scale(0.7);
+  }
+
+  /* Standard width components */
+  .hero-overlay[style*="width: 200px"],
+  .hero-overlay[style*="width: 180px"] {
+    transform: scale(0.75);
+  }
+
+  /* Wide components */
+  .hero-overlay[style*="width: 250px"],
+  .hero-overlay[style*="width: 300px"] {
+    transform: scale(0.8);
+  }
+}

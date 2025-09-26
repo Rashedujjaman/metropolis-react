@@ -586,6 +586,8 @@
    */
   @media (max-width: 767px) {
     padding: var(--spacing-lg) 0; /* Reduced top/bottom padding */
+    min-height: auto; /* Allow natural height on mobile */
+    overflow: visible; /* Ensure content is not clipped */
 
     /* Mobile Hero Layout: Stack-based Structure */
     .hero-layout {
@@ -640,6 +642,7 @@
         .hero-rating-container {
           height: 80px; /* Compact mobile rating */
           width: 80px;
+          margin: 20px 0; /* Spacing around rating */
 
           .hero-rating {
             .rating-stars {
@@ -664,6 +667,7 @@
     .hero-content-section {
       flex-direction: column; /* Stack content vertically */
       gap: var(--spacing-lg);
+      min-height: auto; /* Allow natural height */
 
       .hero-content-left {
         order: 2; /* Move below image on mobile */
@@ -697,31 +701,58 @@
       }
 
       .hero-content-right {
-        height: 300px; /* Much smaller for mobile */
         order: 1; /* Move above content on mobile */
+        height: 280px; /* Increased height for better visibility */
+        width: 100%; /* Full width on mobile */
+        position: relative; /* Ensure proper positioning */
+        flex: none; /* Remove flex behavior */
 
         .hero-image-container {
-          right: 20px; /* Adjusted mobile positioning */
-          width: calc(100% - 40px); /* More mobile-friendly width */
+          position: relative; /* Change from absolute to relative */
+          height: 100%; /* Full container height */
+          width: 80%; /* Full width */
+          right: auto; /* Reset right positioning */
+          top: auto; /* Reset top positioning */
+          left: auto; /* Reset any left positioning */
+          transform: translate(10%, 0);
 
           .hero-main-image {
+            height: 100% !important; /* Force full height */
+            width: 100% !important; /* Force full width */
+            object-fit: cover; /* Maintain aspect ratio */
+            display: block !important; /* Force visibility */
+            visibility: visible !important; /* Ensure not hidden */
             /* Simplified clip-path for mobile */
-            clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 10%);
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
           }
 
           .call-action-overlay {
+            position: absolute; /* Maintain overlay positioning */
+            left: 10px; /* Better mobile positioning */
             top: 20px; /* Adjusted mobile positioning */
-            left: -20px;
+            z-index: 2; /* Ensure overlay is visible */
           }
 
           /* Simplified dot pattern for mobile */
           &::after {
-            bottom: -20px;
+            content: ""; /* Ensure pseudo-element exists */
+            position: absolute; /* Ensure pseudo-element positioning */
+            bottom: 20px; /* Better mobile positioning */
             right: 20px;
+            width: 10px; /* Define dimensions */
+            height: 10px;
             /* Simpler dot pattern with fewer elements */
-            box-shadow: 0 -30px 0 0 white, 30px -30px 0 0 white,
-              30px 0px 0 0 white;
+            background: white; /* Base dot */
+            border-radius: 50%; /* Round dots */
+            box-shadow: -30px 0 0 0 white, -30px -30px 0 0 white,
+              0 -30px 0 0 white; /* Simplified pattern */
           }
+        }
+
+        .hero-rating-container {
+          position: absolute;
+          top: 10px;
+          left: 10px;
         }
       }
     }
@@ -731,67 +762,37 @@
       flex-direction: column; /* Stack footer elements */
       height: auto; /* Auto height for stacked content */
       margin: 4rem 0; /* Reduced mobile margin */
+      // justify-content: center;
+      // align-items: center; /* Center-aligned content */
 
-      .footer-img,
       .footer-logo {
-        height: 120px; /* Fixed height for mobile */
+        width: 40%;
+        align-self: center;
+        border-radius: 50%;
+        margin: 20px 0; /* Spacing around logo */
       }
 
       .footer-details {
+        display: flex;
+        flex-direction: column; /* Stack footer elements */
+        width: 100%; /* Full width on mobile */
         padding: 20px; /* Reduced mobile padding */
         text-align: center; /* Center-aligned content */
         align-items: center; /* Center alignment */
+        gap: 0;
 
         .footer-info {
           text-align: center; /* Override right alignment */
-
+          order: 1;
           h2 {
             font-size: 1.4rem; /* Smaller mobile heading */
-            margin-bottom: 1rem;
           }
         }
 
         .footer-text {
           font-size: 0.9rem; /* Smaller mobile text */
+          order: 2;
         }
-      }
-    }
-  }
-
-  /**
-   * ===============================================
-   * RESPONSIVE DESIGN - SMALL MOBILE BREAKPOINT
-   * ===============================================
-   * Further optimizations for very small screens (<480px)
-   */
-  @media (max-width: 479px) {
-    .hero-layout {
-      .hero-left {
-        .hero-main-title {
-          font-size: 2rem; /* Further reduced for small screens */
-        }
-
-        .hero-second-line .hero-living {
-          font-size: 2rem; /* Matching reduction */
-        }
-      }
-    }
-
-    .hero-content-section .hero-content-right {
-      height: 250px; /* Even smaller for tiny screens */
-
-      .hero-image-container {
-        right: 10px; /* Minimal side margins */
-        width: calc(100% - 20px);
-      }
-    }
-
-    .hero-footer {
-      margin: 2rem 0; /* Minimal margin for small screens */
-
-      .footer-img,
-      .footer-logo {
-        height: 100px; /* Further reduced height */
       }
     }
   }
