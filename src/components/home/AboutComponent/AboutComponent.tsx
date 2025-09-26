@@ -1,11 +1,18 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAward } from "@fortawesome/free-solid-svg-icons";
+import CallActionComponent from "../CallActionComponent";
+import "./AboutComponent.scss";
 
 /**
  * About component - Company information and story
  * Features:
  * - Company journey description
  * - Visual elements with images and statistics
- * - Call to action button
+ * - Call to action button integration
+ * - Statistics card with award icon
+ * - Professional responsive design
+ * - Logo overlay with laurel design
  */
 const AboutComponent: React.FC = () => {
   return (
@@ -34,7 +41,9 @@ const AboutComponent: React.FC = () => {
                 </div>
               </div>
             </div>
-            <p>Wrbanite Twin Tower. I23 Street. USA</p>
+            <p>
+              <b>Wrbanite Twin Tower. </b>I23 Street. USA
+            </p>
           </div>
 
           <div className="details-container">
@@ -55,21 +64,23 @@ const AboutComponent: React.FC = () => {
                 id mollis dolor scelerisque.
               </p>
 
-              {/* Call to Action Button */}
-              <button
-                className="cta-button"
-                style={{ height: "50px", width: "200px" }}
-                type="button"
-              >
-                Learn More
-              </button>
+              {/* Call to Action Component */}
+              <CallActionComponent
+                actionName="Learn More"
+                height={40}
+                width={160}
+                onActionClick={(actionName) => {
+                  console.log(`About section action clicked: ${actionName}`);
+                  // Add navigation logic here
+                }}
+              />
             </div>
 
             {/* Stat card positioned at bottom right */}
             <div className="stat">
               <div className="stat-card">
                 <div className="card-icon">
-                  <i className="fas fa-award"></i>
+                  <FontAwesomeIcon icon={faAward} />
                 </div>
                 <div className="card-content">
                   <div className="stat-number">
@@ -82,6 +93,8 @@ const AboutComponent: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* Bottom section separator with decorative elements */}
+      <div className="line-separator2"></div>
     </section>
   );
 };

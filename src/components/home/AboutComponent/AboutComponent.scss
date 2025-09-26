@@ -1,0 +1,607 @@
+/**
+ * ===============================================
+ * ABOUT COMPONENT STYLES
+ * ===============================================
+ * 
+ * Component: AboutComponent
+ * Purpose: Company information, journey story, and showcase section
+ * Author: Generated for Metropolis React Migration
+ * Created: September 26, 2025
+ * 
+ * Features:
+ * - Company journey narrative with visual elements
+ * - Complex image layout with clip-path geometry
+ * - Overlay logo component with laurel design
+ * - Statistics card with positioned elements
+ * - Call-to-action integration
+ * - Full responsive design for all devices
+ * - Professional typography and spacing
+ * 
+ * Structure:
+ * - Header: Company journey title
+ * - Content Wrapper: Two-column layout (image + details)
+ * - Image Container: Featured building with logo overlay
+ * - Details Container: Text content and statistics
+ * - Line Separator: Visual break element
+ * 
+ * Responsive Strategy:
+ * - Desktop (>1024px): Two-column horizontal layout
+ * - Tablet (768px-1024px): Maintained columns with adjusted sizing
+ * - Mobile (<768px): Single column stacked layout
+ */
+
+.about-section {
+  background: var(--light-bg); /* Consistent light background */
+
+  /**
+   * ===============================================
+   * ABOUT HEADER SECTION
+   * ===============================================
+   * Company journey title with centered layout
+   */
+  .about-header {
+    text-align: center; /* Center header alignment */
+    padding: var(--spacing-lg) 0 0 0; /* Top padding only */
+    width: 100%; /* Full width utilization */
+    display: flex; /* Flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+
+    /* Main Title Typography */
+    .title {
+      font-size: 3rem; /* Large, impactful heading */
+      color: var(--text-primary); /* Brand primary color */
+      margin-bottom: var(--spacing-md); /* Spacing below title */
+      text-align: start; /* Left-aligned text */
+      max-width: 60%; /* Limited width for readability */
+      font-weight: 100; /* Light weight for elegance */
+      line-height: 1.2; /* Tight line height for impact */
+    }
+  }
+
+  /**
+   * ===============================================
+   * MAIN CONTENT WRAPPER
+   * ===============================================
+   * Two-column layout containing image and details sections
+   */
+  .content-wrapper {
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Horizontal arrangement */
+    align-items: stretch; /* Equal height columns */
+    justify-content: center; /* Center content */
+    gap: 2rem; /* Spacing between columns */
+    // background: green;
+    height: fit-content; /* Height based on content */
+
+    /**
+     * ===============================================
+     * IMAGE CONTAINER SECTION
+     * ===============================================
+     * Featured building image with overlay logo
+     */
+    .image-container {
+      flex: 1; /* Equal flex allocation */
+      display: flex; /* Flexbox for internal layout */
+      flex-direction: column; /* Vertical arrangement */
+      // background: yellow;
+      justify-content: end;
+
+      /* Main Image Display */
+      .about-image {
+        margin-bottom: var(--spacing-sm); /* Space below image */
+        position: relative; /* For logo positioning */
+        object-fit: cover; /* Maintain aspect ratio */
+        // max-height: 600px; /* Desktop height limit */
+        width: 80%; /* Full container width */
+        height: 80%; /* Full container height */
+
+        /* Featured Building Image */
+        img {
+          width: 100%; /* Full container width */
+          height: 100%; /* Full container height */
+          /* Complex geometric clipping for visual interest */
+          clip-path: polygon(
+            20% 0%,
+            100% 0%,
+            100% 100%,
+            100% 100%,
+            0% 100%,
+            0% 20%
+          );
+        }
+
+        /**
+         * ===============================================
+         * LOGO OVERLAY COMPONENT
+         * ===============================================
+         * Positioned brand logo with laurel design
+         */
+        .logo-container {
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Horizontal centering */
+          align-items: center; /* Vertical centering */
+          height: 150px; /* Fixed container size */
+          width: 150px;
+          position: absolute; /* Overlay positioning */
+          bottom: 0; /* Bottom corner placement */
+          right: 0; /* Right corner placement */
+          opacity: 0.8; /* Subtle transparency */
+          transform: translate(50%, 50%); /* Corner overlap effect */
+        }
+
+        /* Logo Circle Background */
+        .logo-circle {
+          position: relative; /* For internal positioning */
+          width: 150px; /* Circle dimensions */
+          height: 150px;
+          border-radius: 50%; /* Perfect circle */
+          /* Gradient background for visual depth */
+          background: linear-gradient(
+            135deg,
+            var(--light-bg),
+            var(--primary-orange)
+          );
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Center content */
+          align-items: center;
+          border: 1px solid var(--primary-orange); /* Brand border */
+        }
+
+        /* Laurel Design Element */
+        .laurel {
+          position: absolute; /* Overlay positioning */
+          width: 120px; /* Laurel dimensions */
+          height: 120px;
+          /* External laurel image - replace with actual asset */
+          background-image: url("https://lirp.cdn-website.com/50da28ab/dms3rep/multi/opt/W-Wreath-logo-cleaned-05-226w.png");
+          background-size: contain; /* Fit image within bounds */
+          background-repeat: no-repeat; /* Single image display */
+          z-index: 1; /* Above background layer */
+        }
+      }
+
+      /* Image Caption */
+      p {
+        font-size: 1rem; /* Standard text size */
+        color: var(--secondary-gray); /* Secondary color */
+        text-align: start; /* Centered caption */
+        margin-top: var(--spacing-sm); /* Space above caption */
+      }
+    }
+
+    /**
+     * ===============================================
+     * DETAILS CONTAINER SECTION
+     * ===============================================
+     * Text content and statistics with complex positioning
+     */
+    .details-container {
+      flex: 1; /* Equal flex allocation */
+      line-height: 1.6; /* Optimal reading line height */
+      padding: 1rem; /* Internal padding */
+      display: flex; /* Flexbox for layout */
+      flex-direction: column; /* Vertical arrangement */
+      justify-content: flex-start; /* Top alignment */
+      gap: 1rem; /* Internal spacing */
+      position: relative; /* For absolute positioning */
+      // background: blue;
+
+      /**
+       * Content area that doesn't overlap with statistics card
+       */
+      .content-area {
+        flex: 1; /* Flexible sizing */
+        display: flex; /* Flexbox layout */
+        flex-direction: column; /* Vertical arrangement */
+        gap: 1rem; /* Internal spacing */
+        padding-bottom: 200px; /* Space for statistics card */
+      }
+
+      /* Content Typography */
+      p {
+        font-size: 1rem; /* Standard text size */
+        color: var(--secondary-gray); /* Secondary text color */
+        text-align: justify; /* Justified alignment */
+        line-height: 1.6; /* Optimal reading line height */
+        letter-spacing: 1px; /* Subtle character spacing */
+        margin: 0; /* Remove default margins */
+      }
+
+      /**
+       * ===============================================
+       * LINE SEPARATOR ELEMENT
+       * ===============================================
+       * Visual break with orange accent
+       */
+      .line-separator {
+        width: 100%; /* Full width line */
+        height: 1px; /* Thin separator */
+        background-color: var(--secondary-gray); /* Gray base */
+        margin: var(--spacing-md) 0; /* Vertical spacing */
+        position: relative; /* For pseudo-element */
+
+        /* Orange accent block */
+        &::before {
+          content: ""; /* Required for pseudo-element */
+          position: absolute; /* Overlay positioning */
+          width: 50px; /* Accent width */
+          height: 6px; /* Accent height */
+          background-color: var(--primary-orange); /* Brand color */
+          top: -3px; /* Centered on line */
+          left: 0; /* Left-aligned accent */
+        }
+      }
+
+      /**
+       * ===============================================
+       * STATISTICS CARD SECTION
+       * ===============================================
+       * Positioned overlay with company statistics
+       */
+      .stat {
+        position: absolute; /* Overlay positioning */
+        bottom: 0; /* Bottom alignment */
+        right: 0; /* Right alignment */
+
+        /* Statistics Card Design */
+        .stat-card {
+          position: relative; /* For icon positioning */
+          background: #fff; /* White card background */
+          padding: 30px 25px 25px; /* Internal spacing */
+          width: 250px; /* Fixed card width */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+          /* Complex geometric clipping for visual interest */
+          clip-path: polygon(30px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 30px);
+          z-index: 2; /* Above other content */
+
+          /* Award Icon Element */
+          .card-icon {
+            position: absolute; /* Corner positioning */
+            top: 0; /* Top corner */
+            right: 0; /* Right corner */
+            background: #e94f1a; /* Brand orange */
+            width: 45px; /* Icon container size */
+            height: 45px;
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Vertical centering */
+            justify-content: center; /* Horizontal centering */
+            color: white;
+            transform: rotate(180deg);
+          }
+
+          /* Card Content Area */
+          .card-content {
+            text-align: left; /* Left-aligned content */
+
+            /* Statistics Number Display */
+            .stat-number {
+              font-size: 2rem; /* Large number display */
+              font-weight: 700; /* Bold weight */
+              color: #111; /* Dark text color */
+              position: relative; /* For plus positioning */
+              width: fit-content; /* Tight width fitting */
+
+              /* Plus Symbol Accent */
+              .plus {
+                position: absolute; /* Overlay positioning */
+                top: -20px; /* Above number */
+                right: -20px; /* To the right */
+                color: #e94f1a; /* Brand orange */
+                font-weight: 600; /* Semi-bold weight */
+                margin-left: 2px; /* Fine-tuned spacing */
+              }
+            }
+
+            /* Statistics Description */
+            .stat-text {
+              font-size: 0.9rem; /* Smaller descriptive text */
+              color: #6c757d; /* Muted text color */
+              margin: 5px 0 0; /* Top margin only */
+            }
+          }
+        }
+        &::after {
+          content: ""; /* Required for pseudo-element */
+          position: absolute; /* Overlay positioning */
+          width: 30px; /* Decorative corner size */
+          height: 30px;
+          background: linear-gradient(
+            135deg,
+            #ffff 0%,
+            var(--color-accent) 100%
+          ); /* Match card background */
+          bottom: 0; /* Bottom corner */
+          left: 0; /* Left corner */
+          box-shadow: -3px 3px 6px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+          transform: translate(-50%, 50%);
+        }
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * BOTTOM LINE SEPARATOR
+   * ===============================================
+   * Section divider with decorative elements
+   */
+  .line-separator2 {
+    width: 100%; /* Full width separator */
+    height: 1px; /* Thin line */
+    background-color: var(--secondary-gray); /* Gray color */
+    margin: 8rem 0; /* Large vertical spacing */
+    position: relative; /* For pseudo-elements */
+
+    /* First Decorative Dot */
+    &::before {
+      content: ""; /* Required for pseudo-element */
+      position: absolute; /* Overlay positioning */
+      width: 6px; /* Dot size */
+      height: 6px;
+      background-color: var(--primary-orange); /* Brand color */
+      top: -3px; /* Centered on line */
+      left: 50%; /* Center positioning */
+    }
+
+    /* Second Decorative Dot */
+    &::after {
+      content: ""; /* Required for pseudo-element */
+      position: absolute; /* Overlay positioning */
+      width: 6px; /* Dot size */
+      height: 6px;
+      background-color: var(--primary-orange); /* Brand color */
+      top: -3px; /* Centered on line */
+      left: 60%; /* Offset positioning */
+    }
+  }
+
+  /**
+   * ===============================================
+   * RESPONSIVE DESIGN - MOBILE FIRST APPROACH
+   * ===============================================
+   */
+
+  /**
+   * ===============================================
+   * MOBILE DEVICES (320px - 767px)
+   * ===============================================
+   * Complete layout restructure for mobile experience
+   */
+  @media (max-width: 767px) {
+    /* Mobile Header Adjustments */
+    .about-header {
+      padding: var(--spacing-md) 0 0 0; /* Reduced top padding */
+
+      .title {
+        font-size: clamp(1.5rem, 4vw, 2.5rem); /* Fluid responsive sizing */
+        max-width: 95%; /* Nearly full width */
+        text-align: center; /* Center alignment for mobile */
+        line-height: 1.3; /* Adjusted line height */
+      }
+    }
+
+    /* Mobile Content Layout */
+    .content-wrapper {
+      flex-direction: column; /* Stack vertically */
+      gap: 1.5rem; /* Reduced spacing */
+      padding: var(--spacing-md) 0; /* Reduced padding */
+
+      /* Mobile Image Container */
+      .image-container {
+        order: 1; /* First in mobile layout */
+        align-items: center; /* Center alignment */
+
+        .about-image {
+          max-width: 300px; /* Limited mobile width */
+          max-height: 400px; /* Limited mobile height */
+          margin-bottom: var(--spacing-lg); /* Increased bottom margin */
+          object-fit: cover; /* Maintain aspect ratio */
+
+          /* Smaller Logo for Mobile */
+          .logo-container {
+            width: 70px; /* Reduced size */
+            height: 70px;
+            transform: translate(30%, 30%); /* Adjusted positioning */
+          }
+
+          .logo-circle {
+            width: 70px; /* Matching container */
+            height: 70px;
+          }
+
+          .laurel {
+            width: 60px; /* Proportionally smaller */
+            height: 60px;
+          }
+        }
+
+        /* Mobile Image Caption */
+        p {
+          font-size: 0.8rem; /* Smaller mobile text */
+          text-align: center; /* Maintained center alignment */
+        }
+      }
+
+      /* Mobile Details Container */
+      .details-container {
+        order: 2; /* Second in mobile layout */
+        min-height: auto; /* Remove minimum height */
+        padding: 2rem; /* Increased mobile padding */
+
+        .content-area {
+          padding-bottom: 120px; /* Space for mobile stat card */
+          gap: 0.8rem; /* Tighter mobile spacing */
+        }
+
+        /* Mobile Typography */
+        p {
+          font-size: 0.9rem; /* Slightly smaller text */
+          text-align: left; /* Left alignment for mobile */
+          line-height: 1.5; /* Optimized mobile line height */
+        }
+
+        /* Mobile Line Separator */
+        .line-separator {
+          margin: var(--spacing-sm) 0; /* Reduced mobile margin */
+
+          &::before {
+            width: 30px; /* Smaller accent block */
+            height: 4px; /* Reduced height */
+            top: -2px; /* Adjusted centering */
+          }
+        }
+
+        /* Mobile Statistics Positioning */
+        .stat {
+          position: relative; /* Remove absolute positioning */
+          bottom: auto; /* Reset positioning */
+          right: auto;
+          margin-top: 1rem; /* Add top margin */
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Center on mobile */
+          align-self: center; /* Self-centering */
+          width: fit-content; /* Tight fitting */
+
+          /* Mobile Statistics Card */
+          .stat-card {
+            width: 160px; /* Smaller mobile card */
+            padding: 20px 15px 15px; /* Reduced mobile padding */
+
+            /* Mobile Icon */
+            .card-icon {
+              width: 35px; /* Smaller mobile icon */
+              height: 35px;
+
+              i {
+                font-size: 14px; /* Smaller icon size */
+              }
+            }
+
+            /* Mobile Card Content */
+            .card-content {
+              .stat-number {
+                font-size: 1.5rem; /* Smaller mobile number */
+
+                .plus {
+                  top: -15px; /* Adjusted mobile positioning */
+                  right: -15px;
+                }
+              }
+
+              .stat-text {
+                font-size: 0.8rem; /* Smaller mobile description */
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * TABLET DEVICES (768px - 1023px)
+   * ===============================================
+   * Balanced layout maintaining desktop structure
+   */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* Tablet Header */
+    .about-header {
+      .title {
+        font-size: clamp(2rem, 5vw, 3rem); /* Fluid tablet sizing */
+        max-width: 80%; /* Increased tablet width */
+      }
+    }
+
+    /* Tablet Content Layout */
+    .content-wrapper {
+      gap: 1.5rem; /* Maintained spacing */
+      padding: var(--spacing-lg) 0; /* Standard padding */
+
+      .image-container {
+        .about-image {
+          max-height: 450px; /* Reduced tablet height */
+
+          /* Tablet Logo Sizing */
+          .logo-container {
+            width: 120px; /* Medium tablet size */
+            height: 120px;
+            transform: translate(40%, 40%); /* Adjusted positioning */
+          }
+
+          .logo-circle {
+            width: 120px; /* Matching container */
+            height: 120px;
+          }
+
+          .laurel {
+            width: 90px; /* Proportional tablet size */
+            height: 90px;
+          }
+        }
+      }
+
+      /* Tablet Details Adjustments */
+      .details-container {
+        .content-area {
+          padding-bottom: 180px; /* Space for tablet stat card */
+        }
+
+        .stat {
+          .stat-card {
+            width: 180px; /* Medium tablet card size */
+            padding: 25px 20px 20px; /* Balanced tablet padding */
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * PRINT STYLES
+   * ===============================================
+   * Optimized layout for print media
+   */
+  @media print {
+    .about-section {
+      background: white !important; /* White print background */
+
+      .stat {
+        position: static !important; /* Reset positioning for print */
+        margin-top: 2rem; /* Add spacing for print */
+      }
+
+      .logo-container {
+        display: none; /* Hide decorative elements */
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * HIGH DPI DISPLAYS
+   * ===============================================
+   * Optimizations for retina and high-resolution screens
+   */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .about-image img {
+      image-rendering: -webkit-optimize-contrast; /* Improved image rendering */
+      image-rendering: crisp-edges; /* Sharp edge rendering */
+    }
+  }
+
+  /**
+   * ===============================================
+   * ACCESSIBILITY PREFERENCES
+   * ===============================================
+   * Respect user motion preferences
+   */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important; /* Minimal animation */
+      animation-iteration-count: 1 !important; /* Single iteration */
+      transition-duration: 0.01ms !important; /* Minimal transitions */
+    }
+  }
+}
