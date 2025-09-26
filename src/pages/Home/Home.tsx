@@ -4,9 +4,9 @@ import { BlogPost } from "../../types/home.types";
 import HeroComponent from "../../components/home/HeroComponent/HeroComponent";
 import AboutComponent from "../../components/home/AboutComponent/AboutComponent";
 import ServicesComponent from "../../components/home/ServicesComponent/ServicesComponent";
-import ContactComponent from "../../components/home/ContactComponent/ContactComponent";
 import BlogComponent from "../../components/BlogComponent/BlogComponent";
 import TestimonialComponent from "../../components/home/TestimonialComponent/TestimonialComponent";
+import HelpCenterComponent from "../../components/home/HelpCenterComponent/HelpCenterComponent";
 
 /**
  * Home page component - Main landing page
@@ -103,8 +103,8 @@ const Home: React.FC = () => {
       {/* Blog Section */}
       <BlogComponent onSelectPost={handleBlogPostSelect} />
 
-      {/* Contact Section */}
-      <ContactComponent />
+      {/* Help Center Section */}
+      <HelpCenterComponent />
     </main>
   );
 };

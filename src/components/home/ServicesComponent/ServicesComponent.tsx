@@ -83,7 +83,7 @@ const ServicesComponent: React.FC<ServicesComponentProps> = () => {
       {/* =============================================== */}
       {/* MAIN SERVICES SECTION */}
       {/* =============================================== */}
-      <section className="services-section" style={imageStyles}>
+      <section className="services-section" id="services" style={imageStyles}>
         <div className="container">
           {/* =============================================== */}
           {/* HEADER - THREE COLUMN LAYOUT */}

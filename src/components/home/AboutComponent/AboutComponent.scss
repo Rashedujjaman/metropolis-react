@@ -456,12 +456,11 @@
           position: relative; /* Remove absolute positioning */
           bottom: auto; /* Reset positioning */
           right: auto;
-          margin-top: 1rem; /* Add top margin */
+          // margin-top: 1rem; /* Add top margin */
           display: flex; /* Flexbox for centering */
           justify-content: center; /* Center on mobile */
           align-self: center; /* Self-centering */
           width: fit-content; /* Tight fitting */
-
           /* Mobile Statistics Card */
           .stat-card {
             width: 160px; /* Smaller mobile card */
@@ -471,10 +470,6 @@
             .card-icon {
               width: 35px; /* Smaller mobile icon */
               height: 35px;
-
-              i {
-                font-size: 14px; /* Smaller icon size */
-              }
             }
 
             /* Mobile Card Content */
