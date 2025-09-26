@@ -1,0 +1,132 @@
+/**
+ * ===========================================
+ * CALL ACTION OVERLAY STYLES
+ * ===========================================
+ * Flexible overlay component without absolute positioning
+ * Orange arrow section (25%) + Black action text section (75%)
+ * Positioning handled by parent component
+ */
+
+.hero-overlay {
+  /* === LAYOUT (NO POSITIONING) === */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  /* === INTERACTIVE STATES === */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  /* === ACCESSIBILITY === */
+}
+
+.hero-overlay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-overlay:focus {
+  outline: 2px solid var(--primary-orange, #dd3c08);
+  outline-offset: 2px;
+}
+
+.hero-overlay:active {
+  transform: translateY(0);
+}
+
+/**
+ * LEFT SECTION: Orange Arrow Indicator
+ * - 25% width with orange background
+ * - Contains directional arrows (>>)
+ * - Centered content alignment
+ */
+.section-left {
+  background: var(--primary-orange, #dd3c08);
+  width: 25%;
+  height: 100%;
+  color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/**
+ * RIGHT SECTION: Action Text Container
+ * - 75% width with black background
+ * - Contains customizable action name
+ * - Responsive text sizing
+ */
+.section-right {
+  background: var(--black, #000000);
+  height: 100%;
+  color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 75%;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive text sizing */
+.section-right span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 8px;
+}
+
+/* Hover effects */
+.hero-overlay:hover .section-left {
+  background: #e55a2b; /* Darker orange on hover */
+}
+
+.hero-overlay:hover .section-right {
+  background: #333333; /* Lighter black on hover */
+}
+
+/**
+ * ===========================================
+ * RESPONSIVE ADJUSTMENTS
+ * ===========================================
+ * Optimizations for different overlay sizes
+ */
+
+/* Small overlay adjustments */
+.hero-overlay[style*="height: 40px"] .section-right,
+.hero-overlay[style*="height: 30px"] .section-right {
+  font-size: 0.8rem;
+}
+
+.hero-overlay[style*="height: 40px"] .section-left,
+.hero-overlay[style*="height: 30px"] .section-left {
+  font-size: 0.8rem;
+  letter-spacing: -3px;
+}
+
+/* Large overlay adjustments */
+.hero-overlay[style*="height: 60px"] .section-right,
+.hero-overlay[style*="height: 70px"] .section-right {
+  font-size: 1rem;
+}
+
+.hero-overlay[style*="height: 60px"] .section-left,
+.hero-overlay[style*="height: 70px"] .section-left {
+  font-size: 1.1rem;
+}
+
+/* Extra large overlay adjustments */
+.hero-overlay[style*="height: 80px"] .section-right {
+  font-size: 1.1rem;
+}
+
+.hero-overlay[style*="height: 80px"] .section-left {
+  font-size: 1.2rem;
+}

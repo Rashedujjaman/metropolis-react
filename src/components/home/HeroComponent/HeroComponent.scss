@@ -1,0 +1,376 @@
+// Hero Section
+.hero-section {
+  padding: var(--spacing-xxl) 0;
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .hero-layout {
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    // background: green;
+
+    .hero-left {
+      flex: 1.25;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      // background: blue;
+      height: 100% !important;
+
+      .hero-main-title {
+        font-size: 5rem;
+        font-weight: 500;
+        color: var(--test-primary);
+        margin: 0;
+        line-height: 60px;
+      }
+
+      .hero-second-line {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+
+        .hero-living {
+          font-size: 5rem;
+          font-weight: 500;
+          color: var(--primary-orange);
+          line-height: 60px;
+        }
+
+        .hero-bubbles {
+          display: flex;
+          position: relative;
+          height: 60px;
+          width: 90px;
+
+          /* Individual Bubble Elements: Interactive circular components */
+          .bubble {
+            width: 60px; /* Consistent circular dimensions */
+            height: 60px;
+            border-radius: 50%; /* Perfect circle shape */
+            transition: all 0.3s ease; /* Smooth hover animations */
+            cursor: pointer; /* Interactive feedback */
+
+            /* Top Bubble: Light gradient with accent border */
+            &.bubble-top {
+              background: linear-gradient(
+                135deg,
+                var(--light-bg),
+                var(--color-accent)
+              );
+              border: 2px solid var(--color-accent); /* Accent border highlight */
+              opacity: 0.8; /* Subtle transparency */
+              position: absolute; /* Overlapping positioning */
+              top: 0;
+              left: 0;
+              z-index: 1; /* Layer above bottom bubble */
+            }
+
+            /* Bottom Bubble: Dark solid with shadow depth */
+            &.bubble-bottom {
+              position: absolute; /* Overlapping positioning */
+              background: var(--black); /* Solid dark background */
+              opacity: 0.8; /* Consistent transparency */
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle depth shadow */
+              top: 0;
+              left: 30px; /* Offset for overlap effect */
+            }
+
+            /* Interactive States: Hover and focus effects */
+            &:hover {
+              transform: scale(1.1); /* Subtle scale animation */
+              opacity: 1; /* Full opacity on interaction */
+            }
+
+            &:focus {
+              outline: 2px solid #007acc; /* Accessibility focus indicator */
+              outline-offset: 2px;
+            }
+          }
+        }
+      }
+    }
+
+    .hero-right {
+      flex: 0.75;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      // background: red;
+
+      .hero-description {
+        p {
+          font-size: 1.5rem;
+          line-height: 1.8;
+          color: var(--text-secondary);
+          text-align: justify;
+          margin: 0;
+          max-width: 500px;
+        }
+      }
+
+      /* Interactive Rating Container: Geometric design with custom clip-path */
+      .hero-rating-container {
+        position: relative;
+        background: var(--white);
+        height: 120px;
+        width: 120px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        /* Geometric Triangular Cutout: Creates sophisticated visual interest */
+        clip-path: polygon(20px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20px);
+
+        /* Flexbox Centering: Perfect content alignment */
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+        .hero-rating {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--spacing-xs);
+
+          .rating-stars {
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+
+            .star {
+              font-size: 2rem;
+              color: var(--primary-orange);
+            }
+
+            .rating-number {
+              font-size: 1.5rem;
+              font-weight: 600;
+              color: var(--text-primary);
+            }
+          }
+
+          .rating-info {
+            .rating-text {
+              font-size: 1rem;
+              color: var(--text-primary);
+              font-weight: 600;
+            }
+          }
+        }
+
+        /* Interactive Hover Effects: Subtle elevation and shadow */
+        &:hover {
+          transform: translateY(-2px); /* Slight upward movement */
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Elevated shadow */
+        }
+      }
+    }
+  }
+
+  .hero-content-section {
+    display: flex;
+    position: relative;
+
+    .hero-content-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      justify-content: center;
+      // background: yellow;
+      position: relative;
+
+      .video-section {
+        width: 100%;
+        // background: red;
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: center;
+
+        .video-thumbnail {
+          position: relative;
+          width: 200px;
+          transition: transform 0.3s ease;
+          cursor: pointer;
+
+          .thumbnail-image {
+            width: 100%;
+            display: block;
+          }
+        }
+
+        .video-thumbnail:hover {
+          transform: scale(1.05);
+        }
+
+        .play-button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border: none;
+          background: transparent;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--black);
+          font-size: 30px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+      }
+
+      .hero-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        .hero-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--text-primary);
+          margin: 0;
+        }
+
+        .divider {
+          width: 100%;
+          height: 1px;
+          background: var(--secondary-gray);
+          margin: var(--spacing-sm) 0;
+
+          &:after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-orange);
+            transform: translateY(-1px);
+            margin-top: -2px;
+          }
+        }
+
+        .hero-subtitle {
+          font-size: 1.25rem;
+          font-weight: 400;
+          color: var(--primary-orange);
+          margin: 0;
+        }
+      }
+    }
+
+    .hero-content-right {
+      flex: 2;
+      position: relative;
+      // background: blue;
+      height: 600px;
+
+      .hero-image-container {
+        position: absolute;
+        top: 0;
+        right: 120px;
+        height: 100%;
+        width: calc(100% - 120px);
+
+        .hero-main-image {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
+        }
+
+        .call-action-overlay {
+          position: absolute;
+          top: 30px;
+          left: -50px;
+          z-index: 2; /* Ensure it sits above the image */
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -40px;
+          right: 80px;
+          width: 10px;
+          height: 10px;
+          background: rgb(255, 255, 255);
+          box-shadow: 0 -60px 0 0 white, 60px -60px 0 0 white,
+            60px -120px 0 0 white, 120px -60px 0 0 white, 120px -120px 0 0 white,
+            120px 0px 0 0 white, 60px 0px 0 0 white;
+          z-index: 1000;
+        }
+      }
+    }
+  }
+
+  .hero-footer {
+    background: var(--white); /* Clean background for content focus */
+    width: 100%; /* Full-width footer section */
+    height: 200px; /* Fixed height for desktop consistency */
+    display: flex; /* Flexbox layout management */
+    flex-direction: row; /* Horizontal arrangement */
+    margin: 10rem 0; /* Consistent vertical spacing */
+
+    /* Project Image Showcase: Featured company project */
+    .footer-img {
+      flex: 2; /* Larger flex allocation for visual impact */
+      height: 100%; /* Full container height */
+
+      img {
+        width: 100%; /* Responsive image scaling */
+        height: 100%; /* Full container coverage */
+        object-fit: cover; /* Maintain aspect ratio with cropping */
+      }
+    }
+
+    /* Company Logo Display: Brand identity element */
+    .footer-logo {
+      flex: 1; /* Standard flex allocation */
+      height: 100%; /* Full container height */
+
+      img {
+        width: 100%; /* Responsive logo scaling */
+        height: 100%; /* Full container coverage */
+        object-fit: cover; /* Maintain logo proportions */
+      }
+    }
+
+    /* Company Details Section: Establishment info and branding */
+    .footer-details {
+      flex: 3; /* Largest flex allocation for content */
+      height: 100%; /* Full container height */
+      padding: 30px; /* Internal spacing for content */
+      display: flex; /* Flexbox for internal layout */
+      justify-content: space-between; /* Distribute content evenly */
+      align-items: end; /* Bottom alignment for visual balance */
+
+      /* Company Information Block */
+      .footer-info {
+        text-align: right; /* Right-aligned text for layout balance */
+
+        /* Company Name Typography */
+        h2 {
+          font-size: 1.8rem; /* Large, prominent heading */
+          font-weight: 700; /* Bold weight for brand emphasis */
+          color: var(--text-primary); /* Primary brand color */
+          margin-bottom: 0.5rem; /* Spacing below heading */
+        }
+      }
+
+      /* General Footer Text Styling */
+      .footer-text {
+        font-size: 1rem; /* Standard readable text size */
+        color: var(--text-secondary); /* Secondary color for hierarchy */
+        line-height: 1.4; /* Optimal reading line height */
+      }
+    }
+  }
+}

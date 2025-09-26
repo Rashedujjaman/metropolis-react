@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Header.css";
+import "./Header.scss";
 
 /**
  * Header component with responsive navigation
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="navbar-content">
             {/* Brand Logo */}
-            {/* <div className="navbar-brand">
+            <div className="navbar-brand">
               <a href="/" className="logo">
                 <img
                   src="/creatio.png"
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
                   className="logo-img"
                 />
               </a>
-            </div> */}
+            </div>
 
             {/* Desktop Navigation */}
             <div className="navbar-nav">

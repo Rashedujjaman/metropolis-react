@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from "react";
+import "./HeroComponent.scss";
+import CallActionComponent from "../CallActionComponent/CallActionComponent";
 
 /**
  * Hero component - Main landing section
@@ -9,6 +11,8 @@ import React, { useEffect, useRef } from "react";
  */
 const HeroComponent: React.FC = () => {
   const bubbleContainerRef = useRef<HTMLDivElement>(null);
+
+  const avgRating = 4.8;
 
   useEffect(() => {
     // Animation and interactive effects can be added here
@@ -74,13 +78,12 @@ const HeroComponent: React.FC = () => {
                   ref={bubbleContainerRef}
                   aria-hidden="true"
                 >
-                  <div className="bubble"></div>
-                  <div className="bubble"></div>
-                  <div className="bubble"></div>
+                  <div className="bubble bubble-top"></div>
+                  <div className="bubble bubble-bottom"></div>
                 </div>
 
                 {/* Brand Secondary Text */}
-                <span className="hero-living">LIVING</span>
+                <span className="hero-living">LIVING.</span>
               </div>
             </div>
           </div>
@@ -93,30 +96,23 @@ const HeroComponent: React.FC = () => {
             <div className="hero-description">
               {/* Company Description */}
               <p className="hero-text">
-                Transform your urban living experience with our premium
-                residential developments. We create modern spaces that combine
-                luxury, functionality, and sustainable design for the
-                contemporary lifestyle.
+                We're building urban communities. Connecting people, spaces, and
+                lifestyles through exceptional real estate development.
               </p>
-
-              {/* Rating Container with Triangular Design */}
-              <div
-                className="hero-rating-container"
-                role="group"
-                aria-label="Company rating and reviews"
-              >
-                <div className="hero-rating">
-                  <div className="rating-stars" aria-label="5 out of 5 stars">
-                    <span className="star">★</span>
-                    <span className="star">★</span>
-                    <span className="star">★</span>
-                    <span className="star">★</span>
-                    <span className="star">★</span>
-                  </div>
-                  <div className="rating-info">
-                    <span className="rating-number">4.9</span>
-                    <span className="rating-text">Customer Rating</span>
-                  </div>
+            </div>
+            {/* Rating Container with Triangular Design */}
+            <div
+              className="hero-rating-container"
+              role="group"
+              aria-label="Company rating and reviews"
+            >
+              <div className="hero-rating">
+                <div className="rating-stars" aria-label="5 out of 5 stars">
+                  <span className="star">★</span>
+                  <span className="rating-number">{avgRating}</span>
+                </div>
+                <div className="rating-info">
+                  <span className="rating-text">High-Rated</span>
                 </div>
               </div>
             </div>
@@ -132,27 +128,41 @@ const HeroComponent: React.FC = () => {
           {/* Left Content: Video Player & Titles */}
           <div className="hero-content-left">
             {/* Video Player Container */}
-            <div className="hero-video-container">
-              <div className="video-placeholder">
+            <div
+              className="video-section"
+              role="region"
+              aria-label="Introductory video"
+            >
+              <div className="video-thumbnail" aria-hidden="true">
+                <img
+                  src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.upp-prod-eu.s3.amazonaws.com%2Fbcd9b316-72dc-11e5-a129-3fcc4f641d98?source=next-article&fit=scale-down&quality=highest&width=700&dpr=1"
+                  alt="Video thumbnail showing a modern building"
+                  className="thumbnail-image"
+                />
                 <button
                   className="play-button"
                   onClick={handleVideoPlay}
-                  aria-label="Play company introduction video"
+                  aria-label="Play introductory video"
                 >
-                  <i className="fas fa-play" aria-hidden="true"></i>
+                  ►
                 </button>
-                <img
-                  src="/images/video-thumbnail.jpg"
-                  alt="Company introduction video thumbnail"
-                  className="video-thumbnail"
-                />
+              </div>
+              <div className="video-text">
+                <span>
+                  Watch <br />
+                  our project reel!
+                </span>
               </div>
             </div>
 
             {/* Content Titles */}
-            <div className="hero-titles">
-              <h2 className="content-title">Modern Urban Living</h2>
-              <h3 className="content-subtitle">Redefining City Life</h3>
+            <div className="hero-bottom">
+              <p className="hero-title">
+                Driven By Innovation. <br />
+                Committed To Excellence.
+              </p>
+              <div className="divider"></div>
+              <p className="hero-subtitle">Empowering Urban Living.</p>
             </div>
           </div>
 
@@ -160,12 +170,17 @@ const HeroComponent: React.FC = () => {
           <div className="hero-content-right">
             <div className="hero-image-container">
               <img
-                src="/images/hero-main.jpg"
+                src="https://img.freepik.com/free-photo/vertical-low-angle-shot-high-rise-skyscrapers-glass-facade-frankfurt-germany_181624-7114.jpg"
                 alt="Modern metropolitan building showcase"
                 className="hero-main-image"
               />
-              <div className="image-overlay" aria-hidden="true"></div>
-              <div className="decorative-square" aria-hidden="true"></div>
+              <div className="call-action-overlay">
+                <CallActionComponent
+                  actionName="Get Started"
+                  height={50}
+                  width={200}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -176,45 +191,42 @@ const HeroComponent: React.FC = () => {
           role="contentinfo"
           aria-label="Company information"
         >
-          <div className="hero-footer-grid">
-            {/* Company Image */}
-            <div className="footer-column">
-              <img
-                src="/images/company-photo.jpg"
-                alt="Metropolis Living team and office"
-                className="company-image"
-              />
+          <div
+            className="footer-img"
+            role="img"
+            aria-label="Company project showcase"
+          >
+            <img
+              src="img_1.png"
+              alt="Featured company project - Modern residential development"
+              className="footer-img"
+            />
+          </div>
+
+          <div className="footer-logo" role="img" aria-label="Company logo">
+            <img
+              src="logo.png"
+              alt="Metropolis Living company logo"
+              className="footer-logo"
+            />
+          </div>
+
+          <div
+            className="footer-details"
+            role="region"
+            aria-label="Company establishment and details"
+          >
+            {/* Establishment Information */}
+            <div>
+              <p className="footer-text">Est. Since 2016</p>
             </div>
 
-            {/* Company Logo */}
-            <div className="footer-column">
-              <div className="company-logo">
-                <img
-                  src="/logo.png"
-                  alt="Metropolis Living company logo"
-                  className="logo-image"
-                />
-              </div>
-            </div>
-
-            {/* Company Details */}
-            <div className="footer-column">
-              <div className="company-details">
-                <h4 className="company-name">Metropolis Living</h4>
-                <p className="company-tagline">
-                  Building Tomorrow's Communities
-                </p>
-                <div className="company-stats">
-                  <div className="stat-item">
-                    <span className="stat-number">15+</span>
-                    <span className="stat-label">Years Experience</span>
-                  </div>
-                  <div className="stat-item">
-                    <span className="stat-number">150+</span>
-                    <span className="stat-label">Projects Completed</span>
-                  </div>
-                </div>
-              </div>
+            <div className="footer-info">
+              <h2>Wrbanite</h2>
+              <p className="footer-text">
+                Home And <br />
+                Real Estate Developer
+              </p>
             </div>
           </div>
         </div>

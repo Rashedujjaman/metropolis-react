@@ -15,9 +15,11 @@ code {
 :root {
   --color-primary: #003366;
   --color-secondary: #0066cc;
+  --primary-orange: #dd3c08;
   --text-primary: #0d1821;
   --text-secondary: #8699ac;
   --white: #ffffff;
+  --black: #000000;
   --light-bg: #f1efec;
   --dark-bg: #212529;
   --spacing-sm: 1rem;
