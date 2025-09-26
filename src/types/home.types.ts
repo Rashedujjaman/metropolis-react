@@ -1,11 +1,11 @@
 export interface Testimonial {
-  id: number;
+  id?: number;
   name: string;
   position: string;
-  company: string;
+  company?: string;
   content: string;
-  rating: number;
-  avatar: string;
+  rating?: number;
+  avatar?: string;
 }
 
 export interface Statistic {
@@ -46,6 +46,16 @@ export interface Service {
   description: string;
   icon: string;
   features: string[];
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  date: string;
+  author?: string;
+  content?: string;
+  imageUrl?: string;
+  tags?: string[];
 }
 
 export interface FAQ {

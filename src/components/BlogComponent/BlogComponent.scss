@@ -1,0 +1,282 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .col-1 {
+    flex: 1;
+
+    /* Interactive Bubbles Container: Animated brand elements */
+    .hero-bubbles {
+      display: flex;
+      position: relative;
+      height: 60px;
+      width: 90px;
+
+      /* Individual Bubble Elements: Interactive circular components */
+      .hero-bubble {
+        width: 60px; /* Consistent circular dimensions */
+        height: 60px;
+        border-radius: 50%; /* Perfect circle shape */
+        transition: all 0.3s ease; /* Smooth hover animations */
+        cursor: pointer; /* Interactive feedback */
+
+        /* Top Bubble: Light gradient with accent border */
+        &.hero-bubble-top {
+          background: linear-gradient(
+            135deg,
+            var(--light-bg),
+            var(--color-accent)
+          );
+          border: 2px solid var(--color-accent); /* Accent border highlight */
+          opacity: 0.8; /* Subtle transparency */
+          position: absolute; /* Overlapping positioning */
+          top: 0;
+          left: 0;
+          z-index: 1; /* Layer above bottom bubble */
+        }
+
+        /* Bottom Bubble: Dark solid with shadow depth */
+        &.hero-bubble-bottom {
+          position: absolute; /* Overlapping positioning */
+          background: var(--black); /* Solid dark background */
+          opacity: 0.8; /* Consistent transparency */
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle depth shadow */
+          top: 0;
+          left: 30px; /* Offset for overlap effect */
+        }
+
+        /* Interactive States: Hover and focus effects */
+        &:hover {
+          transform: scale(1.1); /* Subtle scale animation */
+          opacity: 1; /* Full opacity on interaction */
+        }
+      }
+    }
+
+    .section-title {
+      margin-top: var(--spacing-sm);
+    }
+  }
+
+  .col-2 {
+    flex: 1;
+
+    .section-subtitle {
+      font-weight: 100;
+      font-size: 2rem;
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
+  }
+}
+
+.card-wrapper {
+  padding: var(--spacing-xxl) 0;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xxl);
+  position: relative;
+
+  .card {
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0;
+    border: none;
+
+    /* Clip-path cutout on left top */
+    clip-path: polygon(80px 0, 100% 0, 100% 100%, 0 100%, 0 80px);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .feature-tag {
+        position: absolute;
+        bottom: var(--spacing-xl);
+        left: var(--spacing-xl);
+        background: var(--white);
+        color: var(--black);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: var(--border-radius-sm);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        z-index: 2;
+        border-bottom: 3px solid var(--primary-orange);
+      }
+    }
+
+    .card-content {
+      padding: var(--spacing-lg);
+
+      .card-title {
+        font-weight: 600;
+      }
+
+      .card-date {
+        font-family: var(--font-primary);
+        font-size: 0.9rem;
+        color: var(--secondary-gray);
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .card-container {
+    flex: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 200px;
+      right: 30px;
+      width: 6px;
+      height: 6px;
+      background: rgb(255, 255, 255);
+      box-shadow: 60px 0 0 0 white, 0 -60px 0 0 white, 60px -60px 0 0 white,
+        60px -120px 0 0 white, 0px -120px 0 0 white;
+      z-index: 1000;
+    }
+
+    // Interactive card states
+    .card {
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+        .card-image img {
+          transform: scale(1.05);
+        }
+
+        .feature-tag {
+          background-color: var(--color-accent);
+        }
+      }
+
+      &:focus {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 4px;
+      }
+
+      // Author display
+      .card-content {
+        .card-author {
+          font-size: 0.9rem;
+          color: var(--secondary-gray);
+          margin-top: 0.5rem;
+          font-style: italic;
+        }
+      }
+
+      .card-image {
+        img {
+          transition: transform 0.3s ease;
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          &:error,
+          &[src="/img_1.png"] {
+            filter: grayscale(20%);
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+
+  // Loading and Empty States
+  .loading-placeholder,
+  .no-posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    text-align: center;
+
+    p {
+      font-size: 1.2rem;
+      color: var(--secondary-gray);
+      padding: var(--spacing-lg);
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .loading-placeholder {
+    p::after {
+      content: "...";
+      animation: loading-dots 1.5s infinite;
+    }
+  }
+
+  // Responsive Design Enhancements
+  @media (max-width: 767px) {
+    .card-wrapper {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .card-container {
+      .card {
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      &::after {
+        display: none; // Hide decorative dots on mobile
+      }
+    }
+
+    .loading-placeholder,
+    .no-posts {
+      min-height: 200px;
+
+      p {
+        font-size: 1rem;
+        padding: var(--spacing-md);
+      }
+    }
+  }
+}
+
+// Loading Animation
+@keyframes loading-dots {
+  0%,
+  20% {
+    color: transparent;
+  }
+  40% {
+    color: var(--secondary-gray);
+  }
+  100% {
+    color: transparent;
+  }
+}

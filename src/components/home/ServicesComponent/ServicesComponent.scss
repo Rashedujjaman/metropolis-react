@@ -1,0 +1,837 @@
+/**
+ * ===============================================
+ * SERVICES COMPONENT STYLES
+ * ===============================================
+ * 
+ * Component: ServicesComponent
+ * Purpose: Company services showcase with urban development grid and testimonials
+ * Author: Generated for Metropolis React Migration
+ * Created: September 26, 2025
+ * 
+ * Features:
+ * - Multi-column header with interactive bubbles
+ * - Complex urban grid layout with background images
+ * - Testimonials section with video player integration
+ * - Property development and management sections
+ * - Professional responsive design for all devices
+ * - Interactive elements with hover effects
+ * - Brand consistency with orange accent colors
+ * 
+ * Structure:
+ * - Header: Three-column layout with services introduction
+ * - Urban Grid: 2x2 grid with mixed content and background images
+ * - Testimonials: Client testimonials with video integration
+ * - Line Separator: Visual break element
+ * 
+ * Responsive Strategy:
+ * - Desktop (>1024px): Full grid layout with complex positioning
+ * - Tablet (768px-1024px): Maintained grid with adjusted sizing
+ * - Mobile (<768px): Single column with stacked elements
+ */
+
+.services-section {
+  padding: 0 var(--spacing-sm); /* Consistent container padding */
+  max-width: 100%; /* Full width utilization */
+  margin: 0 auto; /* Center alignment */
+
+  /**
+   * ===============================================
+   * HEADER SECTION - THREE COLUMN LAYOUT
+   * ===============================================
+   * Service introduction with interactive brand elements
+   */
+  .services-header {
+    display: flex; /* Flexbox layout for columns */
+    flex-direction: row; /* Horizontal arrangement */
+    align-items: center; /* Vertical alignment */
+    margin-bottom: var(--spacing-xl); /* Space below header */
+    // background: red;
+
+    /**
+     * Column 1: Services title with interactive bubbles
+     * Takes larger space allocation (flex: 2)
+     */
+    .col-1 {
+      flex: 2; /* Larger allocation for visual impact */
+
+      /* Interactive Bubbles Container */
+      .hero-bubbles {
+        display: flex; /* Flexbox for bubble positioning */
+        position: relative; /* For absolute bubble positioning */
+        height: 60px; /* Container height */
+        width: 90px; /* Container width */
+        margin-bottom: var(--spacing-md); /* Space below bubbles */
+
+        /* Individual Bubble Elements */
+        .hero-bubble {
+          width: 60px; /* Consistent circular dimensions */
+          height: 60px;
+          border-radius: 50%; /* Perfect circle shape */
+          transition: all 0.3s ease; /* Smooth hover animations */
+          cursor: pointer; /* Interactive feedback */
+
+          /* Top Bubble: Gradient with orange accent */
+          &.hero-bubble-top {
+            background: linear-gradient(
+              135deg,
+              var(--light-bg),
+              var(--primary-orange)
+            );
+            border: 2px solid var(--primary-orange); /* Brand accent border */
+            opacity: 0.8; /* Subtle transparency */
+            position: absolute; /* Overlay positioning */
+            top: 0;
+            left: 0;
+            z-index: 1; /* Layer above bottom bubble */
+          }
+
+          /* Bottom Bubble: White solid with shadow */
+          &.hero-bubble-bottom {
+            position: absolute; /* Overlay positioning */
+            background: var(--white); /* Solid white background */
+            opacity: 0.8; /* Consistent transparency */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle depth shadow */
+            top: 0;
+            left: 30px; /* Offset for overlap effect */
+          }
+
+          /* Interactive Hover Effects */
+          &:hover {
+            transform: scale(1.1); /* Subtle scale animation */
+            opacity: 1; /* Full opacity on interaction */
+          }
+        }
+      }
+
+      /* Section Title Typography */
+      .section-title {
+        font-size: 1rem; /* Large title size */
+        font-weight: 100; /* Light weight base */
+        color: var(--text-primary); /* Primary text color */
+        line-height: 1.2; /* Tight line height */
+
+        /* Bold emphasis for "Services" */
+        strong {
+          font-weight: 600; /* Semi-bold emphasis */
+        }
+      }
+    }
+
+    /**
+     * Column 2 & 3: Property Development and Management
+     * Equal space allocation (flex: 1 each)
+     */
+    .col-2,
+    .col-3 {
+      flex: 1; /* Equal allocation */
+
+      /* Subtitle Styling */
+      .section-subtitle {
+        font-family: var(--font-heading); /* Brand typography */
+        font-weight: 100; /* Light weight */
+        font-size: 2rem; /* Large subtitle */
+        line-height: 1; /* Tight line height */
+        color: var(--text-secondary); /* Secondary color */
+        margin-bottom: var(--spacing-xs); /* Space below subtitle */
+      }
+
+      /* Main Title Styling */
+      .section-title {
+        font-size: 2rem; /* Matching size with col-1 */
+        font-weight: 600; /* Bold emphasis */
+        color: var(--text-primary); /* Primary color */
+        margin-bottom: var(--spacing-sm); /* Space below title */
+        line-height: 1.1; /* Tight line height */
+      }
+
+      /* Description Text */
+      .section-description {
+        font-size: 1rem; /* Standard body text */
+        color: var(--text-secondary); /* Secondary color */
+        line-height: 1.4; /* Readable line height */
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * URBAN GRID LAYOUT - 2x2 COMPLEX GRID
+   * ===============================================
+   * Mixed content grid with background images and text sections
+   */
+  .urban-grid {
+    margin-top: var(--spacing-xl); /* Space above grid */
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    grid-template-rows: repeat(2, auto); /* Two auto rows */
+    position: relative; /* For decorative arrow element */
+    border: 1px solid var(--border-light); /* Subtle border */
+
+    /**
+     * Decorative Arrow Element
+     * Orange arrow pointing to next section
+     */
+    &::after {
+      content: ">>"; /* Double arrow content */
+      position: absolute; /* Positioned overlay */
+      right: 0; /* Right edge alignment */
+      bottom: 0; /* Bottom edge alignment */
+      height: 50px; /* Arrow container size */
+      width: 50px;
+      background: var(--primary-orange); /* Orange background */
+      color: white; /* White arrow text */
+      font-size: 2rem; /* Large arrow size */
+      display: flex; /* Flexbox for centering */
+      align-items: center; /* Vertical centering */
+      justify-content: center; /* Horizontal centering */
+      transform: translateY(100%); /* Position below grid */
+      letter-spacing: -6px; /* Tight character spacing */
+      font-size: 1.5rem; /* Refined arrow size */
+      font-weight: bold; /* Bold arrow emphasis */
+    }
+  }
+
+  /**
+   * ===============================================
+   * GRID ITEM BASE STYLING
+   * ===============================================
+   * Common styling for all grid sections
+   */
+  .grid-item {
+    padding: 30px; /* Internal spacing */
+    height: 500px; /* Consistent height */
+    display: flex; /* Flexbox for content arrangement */
+    flex-direction: column; /* Vertical content flow */
+    justify-content: space-between; /* Space distribution */
+    position: relative; /* For background images */
+    background: #fff; /* Default white background */
+
+    /* Grid Item Titles */
+    .title {
+      font-size: 3rem; /* Large impact typography */
+      font-weight: 100; /* Light base weight */
+      letter-spacing: 0; /* No letter spacing */
+      color: var(--text-primary); /* Primary text color */
+      line-height: 1.1; /* Tight line height */
+      margin-bottom: var(--spacing-md); /* Space below title */
+
+      /* Bold emphasis within titles */
+      b,
+      strong {
+        font-weight: 600; /* Semi-bold emphasis */
+      }
+    }
+
+    /* Grid Item Paragraphs */
+    p {
+      font-size: 0.95rem; /* Slightly smaller body text */
+      color: var(--secondary-gray); /* Muted text color */
+      line-height: 1.5; /* Readable line height */
+      margin: 0; /* Remove default margins */
+    }
+  }
+
+  /**
+   * ===============================================
+   * CONTENT WITH ICON SECTIONS
+   * ===============================================
+   * Icon and text combinations used throughout grid
+   */
+  .content-with-icon {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Vertical alignment */
+    gap: var(--spacing-sm); /* Space between icon and text */
+
+    /* Icon Container Styling */
+    .icon {
+      font-size: 1.5rem; /* Icon size */
+      color: var(--white); /* White icon color */
+      background: var(--black); /* Black background */
+      padding: 8px 16px; /* Icon container padding */
+      border-bottom: 5px solid var(--primary-orange); /* Orange accent border */
+      display: flex; /* Flexbox for centering */
+      align-items: center; /* Center icon */
+      justify-content: center; /* Center icon */
+      min-width: 50px; /* Minimum width for consistency */
+    }
+
+    /* Text Content */
+    p {
+      margin: 0; /* Remove default margin for alignment */
+      flex: 1; /* Take remaining space */
+    }
+  }
+
+  /**
+   * ===============================================
+   * SPECIFIC GRID ITEM STYLES
+   * ===============================================
+   */
+
+  /* Top Right: Background Image */
+  .top-right {
+    background: var(--grid-top-right-image) no-repeat center center; /* Background image */
+    background-size: cover; /* Cover entire area */
+    padding: 0; /* Remove padding for image */
+  }
+
+  /* Middle Left: Background Image */
+  .middle-left {
+    background: var(--grid-middle-left-image) no-repeat center center; /* Background image */
+    background-size: cover; /* Cover entire area */
+    padding: 0; /* Remove padding for image */
+  }
+
+  /**
+   * Middle Right: Complex Multi-Section Layout
+   * Contains title, logo, and icon section
+   */
+  .middle-right {
+    display: grid; /* Nested grid layout */
+    grid-template-rows: 3fr 1fr; /* 3/4 top, 1/4 bottom */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    height: 100%; /* Full height */
+    padding: 0; /* Remove default padding */
+
+    /* Title Typography (smaller than main grid) */
+    .title {
+      font-size: 2rem; /* Reduced size for nested layout */
+      font-weight: 100; /* Light base weight */
+      color: var(--text-primary); /* Primary color */
+      margin-bottom: var(--spacing-sm); /* Space below */
+
+      b,
+      strong {
+        font-weight: 600; /* Bold emphasis */
+      }
+    }
+
+    /* Paragraph Text */
+    p {
+      font-size: 0.95rem; /* Standard size */
+      color: var(--secondary-gray); /* Muted color */
+    }
+
+    /* Top Left Section: Landmarks Title */
+    .top-left {
+      grid-row: 1 / 2; /* First row */
+      grid-column: 1 / 2; /* First column */
+      display: flex; /* Flexbox layout */
+      flex-direction: column; /* Vertical arrangement */
+      justify-content: space-between; /* Space distribution */
+      padding: 40px; /* Internal spacing */
+      background: var(--light-bg); /* Light background */
+    }
+
+    /* Top Right Section: Logo Display */
+    .top-right {
+      grid-row: 1 / 2; /* First row */
+      grid-column: 2 / 3; /* Second column */
+      background: var(--black); /* Black background */
+      display: flex; /* Flexbox for centering */
+      justify-content: center; /* Horizontal centering */
+      align-items: center; /* Vertical centering */
+
+      /* Logo Image Styling */
+      img {
+        width: 50%; /* Responsive width */
+        height: auto; /* Maintain aspect ratio */
+        max-width: 120px; /* Maximum size limit */
+        object-fit: contain; /* Maintain proportions */
+      }
+    }
+
+    /* Bottom Section: Orange Bar with Icon */
+    .bottom {
+      grid-row: 2 / 3; /* Second row */
+      grid-column: 1 / 3; /* Span both columns */
+      background: var(--primary-orange); /* Orange background */
+      display: flex; /* Flexbox layout */
+      justify-content: center; /* Center content */
+      align-items: center; /* Vertical alignment */
+      padding: 0 40px; /* Horizontal padding only */
+      color: white; /* White text color */
+
+      /* Icon Styling for Orange Section */
+      .content-with-icon {
+        .icon {
+          font-size: 1.5rem; /* Icon size */
+          color: var(--black); /* Black icon */
+          background: white; /* White background */
+          border-bottom: 5px solid var(--black); /* Black accent */
+          padding: 4px 8px; /* Compact padding */
+        }
+
+        /* White text on orange background */
+        p {
+          margin: 0; /* Remove margin */
+          color: white; /* White text */
+          font-size: 1.1rem; /* Slightly larger text */
+        }
+      }
+    }
+  }
+
+  /* Bottom Right: Background Image */
+  .bottom-right {
+    background: var(--grid-bottom-right-image) no-repeat center center; /* Background image */
+    background-size: cover; /* Cover entire area */
+    padding: 0; /* Remove padding for image */
+  }
+
+  /**
+   * ===============================================
+   * RESPONSIVE DESIGN - MOBILE FIRST APPROACH
+   * ===============================================
+   */
+
+  /**
+   * ===============================================
+   * MOBILE DEVICES (BELOW 768PX)
+   * ===============================================
+   * Single column layout with stacked elements
+   */
+  @media (max-width: 767px) {
+    padding: 0 var(--spacing-xs); /* Reduced mobile padding */
+
+    /* Mobile Header Layout */
+    .header {
+      flex-direction: column; /* Stack columns vertically */
+      gap: var(--spacing-md); /* Space between sections */
+      text-align: center; /* Center alignment */
+      margin-bottom: var(--spacing-lg); /* Reduced space below */
+
+      /* All columns full width on mobile */
+      .col-1,
+      .col-2,
+      .col-3 {
+        flex: none; /* Remove flex sizing */
+        width: 100%; /* Full width */
+      }
+
+      /* Mobile Bubbles Centering */
+      .col-1 {
+        .hero-bubbles {
+          justify-content: center; /* Center bubbles */
+          width: 120px; /* Container width */
+          margin: 0 auto var(--spacing-sm); /* Center with space below */
+
+          .hero-bubble {
+            width: 50px; /* Smaller mobile bubbles */
+            height: 50px;
+
+            &.hero-bubble-bottom {
+              left: 25px; /* Adjusted overlap */
+            }
+          }
+        }
+
+        .section-title {
+          font-size: clamp(1.8rem, 5vw, 2.2rem); /* Responsive sizing */
+        }
+      }
+
+      /* Mobile Typography */
+      .col-2,
+      .col-3 {
+        .section-subtitle {
+          font-size: clamp(1.2rem, 4vw, 1.8rem); /* Fluid sizing */
+          text-align: center; /* Center alignment */
+        }
+
+        .section-title {
+          font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive title */
+        }
+
+        .section-description {
+          font-size: 0.9rem; /* Smaller mobile text */
+        }
+      }
+    }
+
+    /* Mobile Urban Grid */
+    .urban-grid {
+      grid-template-columns: 1fr; /* Single column */
+      grid-template-rows: repeat(4, auto); /* Four rows */
+      gap: var(--spacing-sm); /* Reduced gap */
+      margin-top: var(--spacing-md); /* Reduced top margin */
+
+      /* Mobile Arrow Positioning */
+      &::after {
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove transform */
+        margin: var(--spacing-sm) auto 0; /* Center with margin */
+        width: 40px; /* Smaller size */
+        height: 40px;
+        font-size: 1.2rem; /* Smaller font */
+      }
+    }
+
+    /* Mobile Grid Items */
+    .grid-item {
+      height: auto; /* Auto height */
+      min-height: 300px; /* Minimum height */
+      padding: var(--spacing-md); /* Reduced padding */
+
+      .title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem); /* Responsive title */
+        margin-bottom: var(--spacing-sm); /* Space below */
+        text-align: center; /* Center alignment */
+      }
+
+      p {
+        font-size: 0.9rem; /* Smaller mobile text */
+        line-height: 1.5; /* Readable line height */
+        text-align: center; /* Center alignment */
+      }
+    }
+
+    /* Mobile Middle Right Grid */
+    .middle-right {
+      grid-template-rows: auto auto auto; /* Three auto rows */
+      grid-template-columns: 1fr; /* Single column */
+      height: auto; /* Auto height */
+
+      .top-left,
+      .top-right,
+      .bottom {
+        grid-row: auto; /* Auto row placement */
+        grid-column: 1 / 2; /* Single column span */
+        min-height: 200px; /* Minimum height */
+        padding: var(--spacing-md); /* Standard padding */
+      }
+
+      .top-left {
+        order: 1; /* First in order */
+
+        .title {
+          font-size: 1.5rem; /* Smaller mobile title */
+          margin-bottom: var(--spacing-xs); /* Reduced space */
+          text-align: center; /* Center alignment */
+        }
+
+        p {
+          text-align: center; /* Center description */
+        }
+      }
+
+      .top-right {
+        order: 2; /* Second in order */
+
+        img {
+          width: 30%; /* Smaller mobile logo */
+          max-width: 80px; /* Maximum size */
+        }
+      }
+
+      .bottom {
+        order: 3; /* Third in order */
+
+        .content-with-icon {
+          flex-direction: column; /* Stack vertically */
+          text-align: center; /* Center alignment */
+          gap: var(--spacing-xs); /* Small gap */
+
+          .icon {
+            margin-right: 0; /* Remove right margin */
+            margin-bottom: var(--spacing-xs); /* Add bottom margin */
+          }
+
+          p {
+            font-size: 1rem; /* Standard mobile text */
+          }
+        }
+      }
+    }
+
+    /* Mobile Content with Icon */
+    .content-with-icon {
+      flex-direction: column; /* Stack vertically */
+      text-align: center; /* Center alignment */
+      gap: var(--spacing-xs); /* Small gap */
+
+      .icon {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: var(--spacing-xs); /* Add bottom margin */
+        font-size: 1.2rem; /* Slightly larger mobile icon */
+        align-self: center; /* Self-centering */
+      }
+
+      p {
+        text-align: center; /* Center text */
+      }
+    }
+
+    /* Mobile Testimonials */
+    .testimonials {
+      padding: var(--spacing-md) 0; /* Reduced padding */
+      margin-bottom: var(--spacing-md); /* Reduced margin */
+
+      .section-title {
+        font-size: 1.5rem; /* Smaller mobile title */
+        margin-bottom: var(--spacing-md); /* Space below */
+        flex-direction: column; /* Stack elements */
+        text-align: center; /* Center alignment */
+
+        .char-image {
+          width: 1.5rem; /* Smaller mobile image */
+          height: 1.5rem;
+          margin: 0.3rem 0; /* Vertical margin */
+          top: 0; /* Reset positioning */
+        }
+      }
+
+      .testimonial-card {
+        width: 95%; /* Nearly full width */
+        padding: var(--spacing-sm); /* Reduced padding */
+        margin-bottom: var(--spacing-sm); /* Reduced margin */
+
+        .video-player-container {
+          margin-bottom: var(--spacing-sm); /* Reduced space */
+          flex-direction: column; /* Stack vertically */
+          gap: var(--spacing-xs); /* Small gap */
+
+          .card-icon {
+            height: 25px; /* Smaller mobile icon */
+            width: 25px;
+            font-size: 0.8rem; /* Smaller font */
+          }
+
+          .watch-video {
+            font-size: 0.9rem; /* Smaller mobile text */
+            text-align: center; /* Center text */
+          }
+        }
+
+        .card-content {
+          .description {
+            font-size: 0.9rem; /* Smaller mobile text */
+            line-height: 1.5; /* Readable line height */
+            text-align: left; /* Left alignment */
+            margin-bottom: var(--spacing-md); /* Space below */
+
+            &::before {
+              width: 40px; /* Smaller accent line */
+              height: 2px; /* Thinner line */
+              margin-right: var(--spacing-xs); /* Reduced margin */
+            }
+          }
+
+          .author {
+            font-size: 0.9rem; /* Smaller mobile text */
+          }
+
+          .role {
+            font-size: 0.8rem; /* Smaller mobile text */
+            margin-top: var(--spacing-xs); /* Reduced margin */
+          }
+        }
+      }
+
+      /* Hide positioned bubbles on mobile */
+      .hero-bubbles {
+        display: none;
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * TABLET DEVICES (768PX - 1023PX)
+   * ===============================================
+   * Balanced layout maintaining desktop structure
+   */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 var(--spacing-sm); /* Standard tablet padding */
+
+    /* Tablet Header Adjustments */
+    .header {
+      .col-1 {
+        .section-title {
+          font-size: 2.2rem; /* Slightly smaller tablet title */
+        }
+      }
+
+      .col-2,
+      .col-3 {
+        .section-subtitle {
+          font-size: 1.8rem; /* Reduced tablet subtitle */
+        }
+
+        .section-title {
+          font-size: 2.2rem; /* Matching title size */
+        }
+      }
+    }
+
+    /* Tablet Urban Grid */
+    .urban-grid {
+      gap: var(--spacing-sm); /* Reduced gap */
+
+      &::after {
+        width: 45px; /* Medium tablet arrow */
+        height: 45px;
+        font-size: 1.8rem; /* Medium font size */
+      }
+    }
+
+    /* Tablet Grid Items */
+    .grid-item {
+      height: 400px; /* Reduced height */
+      padding: 25px; /* Reduced padding */
+
+      .title {
+        font-size: 2.5rem; /* Smaller tablet titles */
+      }
+
+      p {
+        font-size: 0.9rem; /* Slightly smaller text */
+      }
+    }
+
+    /* Tablet Middle Right Adjustments */
+    .middle-right {
+      .top-left,
+      .top-right {
+        padding: 30px; /* Standard padding */
+      }
+
+      .top-right {
+        img {
+          width: 45%; /* Medium tablet logo */
+        }
+      }
+
+      .bottom {
+        padding: 0 30px; /* Horizontal padding */
+
+        .content-with-icon {
+          .icon {
+            margin-right: 15px; /* Medium spacing */
+          }
+
+          p {
+            font-size: 1rem; /* Standard tablet text */
+          }
+        }
+      }
+    }
+
+    /* Tablet Testimonials */
+    .testimonials {
+      padding: var(--spacing-lg) 0; /* Standard padding */
+
+      .section-title {
+        font-size: 3rem; /* Medium tablet title */
+        margin-bottom: var(--spacing-md); /* Standard space */
+
+        .char-image {
+          width: 2.8rem; /* Medium tablet image */
+          height: 2.8rem;
+        }
+      }
+
+      .testimonial-card {
+        width: 85%; /* Balanced tablet width */
+        padding: var(--spacing-md); /* Standard padding */
+
+        .video-player-container {
+          .card-icon {
+            height: 28px; /* Medium tablet icon */
+            width: 28px;
+            font-size: 0.9rem; /* Medium font */
+          }
+        }
+
+        .card-content {
+          .description {
+            font-size: 0.95rem; /* Standard tablet text */
+            line-height: 1.6; /* Readable line height */
+
+            &::before {
+              width: 50px; /* Medium accent line */
+              height: 2.5px; /* Medium thickness */
+            }
+          }
+
+          .author {
+            font-size: 1rem; /* Standard tablet author */
+          }
+
+          .role {
+            font-size: 0.9rem; /* Standard tablet role */
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * ===============================================
+   * ACCESSIBILITY AND PERFORMANCE OPTIMIZATIONS
+   * ===============================================
+   */
+
+  /* Reduced Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bubble {
+      transition: none; /* Disable animations */
+    }
+
+    .urban-grid::after {
+      animation: none; /* Disable arrow animation */
+    }
+
+    .testimonials {
+      .section-title {
+        .char-image {
+          transition: none; /* Disable hover animation */
+
+          &:hover {
+            transform: none; /* Disable scaling */
+          }
+        }
+      }
+    }
+
+    .card-icon {
+      transition: none; /* Disable button animation */
+
+      &:hover {
+        transform: none; /* Disable scaling */
+      }
+    }
+  }
+
+  /* High DPI Display Optimization */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .top-right,
+    .middle-left,
+    .bottom-right {
+      image-rendering: -webkit-optimize-contrast; /* Improved rendering */
+      image-rendering: crisp-edges; /* Sharp edges */
+    }
+
+    .char-image {
+      image-rendering: -webkit-optimize-contrast; /* Sharp profile image */
+    }
+  }
+
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    .testimonial-card {
+      background: var(--dark-card-bg, #2a2a2a); /* Dark card background */
+      border-color: var(--dark-border, #444); /* Dark border */
+
+      .card-content {
+        .description {
+          color: var(--dark-text, #cccccc); /* Light text */
+        }
+
+        .author {
+          color: var(--dark-text-primary, #ffffff); /* Light primary text */
+        }
+      }
+    }
+  }
+}
