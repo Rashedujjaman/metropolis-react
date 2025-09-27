@@ -8,6 +8,7 @@
   z-index: 1000;
   transition: var(--transition-normal);
   border-bottom: 1px solid transparent;
+  background-color: var(--light-bg);
 
   &.scrolled {
     box-shadow: var(--shadow-md);

@@ -159,13 +159,12 @@ const Footer: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Footer Bottom - Copyright */}
-          <div className="footer-bottom">
-            <div className="container">
-              <div className="footer-bottom-content">
-                <p className="copyright">Copyright &copy; {currentYear}.</p>
-              </div>
+        </div>
+        {/* Footer Bottom - Copyright */}
+        <div className="footer-bottom">
+          <div className="container">
+            <div className="footer-bottom-content">
+              <p className="copyright">Copyright &copy; {currentYear}.</p>
             </div>
           </div>
         </div>

@@ -23,32 +23,7 @@
 
 import React from "react";
 import "./CallActionComponent.css";
-
-interface CallActionComponentProps {
-  /**
-   * The action name/text to display in the overlay
-   * @default 'Get Started'
-   */
-  actionName?: string;
-
-  /**
-   * Height of the overlay component in pixels
-   * @default 50
-   */
-  height?: number;
-
-  /**
-   * Width of the overlay component in pixels
-   * @default 200
-   */
-  width?: number;
-
-  /**
-   * Event handler when the action button is clicked or activated
-   * Receives the action name as parameter
-   */
-  onActionClick?: (actionName: string) => void;
-}
+import { CallActionComponentProps } from "./types";
 
 /**
  * CallActionComponent - Interactive overlay with orange arrow and black action text

@@ -1,6 +1,6 @@
 import React from "react";
-import { BlogPost } from "../../types/home.types";
-import { useHomeData } from "../../hooks/useHomeData";
+import { BlogPost } from "../../../types/home.types";
+import { useHomeData } from "../../../hooks/useHomeData";
 import "./BlogComponent.scss";
 
 export type BlogComponentProps = {
