@@ -184,48 +184,47 @@ const HeroComponent: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Hero Footer Section: Company Details */}
+      </div>
+      {/* Hero Footer Section: Company Details */}
+      <div
+        className="hero-footer"
+        role="contentinfo"
+        aria-label="Company information"
+      >
         <div
-          className="hero-footer"
-          role="contentinfo"
-          aria-label="Company information"
+          className="footer-img"
+          role="img"
+          aria-label="Company project showcase"
         >
-          <div
-            className="footer-img"
-            role="img"
-            aria-label="Company project showcase"
-          >
-            <img
-              src="img_1.png"
-              alt="Featured company project - Modern residential development"
-              className="footer-img"
-            />
-          </div>
-
-          {/* <div className="footer-logo" role="img" aria-label="Company logo"> */}
           <img
-            src="logo.png"
-            alt="Metropolis Living company logo"
-            className="footer-logo"
+            src="img_1.png"
+            alt="Featured company project - Modern residential development"
+            className="footer-img"
           />
-          {/* </div> */}
+        </div>
 
-          <div
-            className="footer-details"
-            role="region"
-            aria-label="Company establishment and details"
-          >
-            {/* Establishment Information */}
-            <p className="footer-text">Est. Since 2016</p>
+        {/* <div className="footer-logo" role="img" aria-label="Company logo"> */}
+        <img
+          src="logo.png"
+          alt="Metropolis Living company logo"
+          className="footer-logo"
+        />
+        {/* </div> */}
 
-            <div className="footer-info">
-              <h2>Wrbanite</h2>
-              <p className="footer-text">
-                Home And <br />
-                Real Estate Developer
-              </p>
-            </div>
+        <div
+          className="footer-details"
+          role="region"
+          aria-label="Company establishment and details"
+        >
+          {/* Establishment Information */}
+          <p className="footer-text">Est. Since 2016</p>
+
+          <div className="footer-info">
+            <h2>Wrbanite</h2>
+            <p className="footer-text">
+              Home And <br />
+              Real Estate Developer
+            </p>
           </div>
         </div>
       </div>
